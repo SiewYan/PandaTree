@@ -295,12 +295,12 @@ struct plotter <24> {
 
 template <>
 struct plotter <25> {
-  constexpr static const char* name = "pfCandidates/hCalFrac";
+  constexpr static const char* name = "pfCandidates/pz";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.pfCandidates)
-      output.push_back(i.hCalFrac);
+      output.push_back(i.pz());
 
     return output;
   }
@@ -351,20 +351,6 @@ struct plotter <28> {
 
 template <>
 struct plotter <29> {
-  constexpr static const char* name = "pfCandidates/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.pfCandidates)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <30> {
   constexpr static const char* name = "pfCandidates/q";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -378,7 +364,7 @@ struct plotter <30> {
 
 
 template <>
-struct plotter <31> {
+struct plotter <30> {
   constexpr static const char* name = "pfCandidates/puppiW";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -392,7 +378,7 @@ struct plotter <31> {
 
 
 template <>
-struct plotter <32> {
+struct plotter <31> {
   constexpr static const char* name = "pfCandidates/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -406,7 +392,7 @@ struct plotter <32> {
 
 
 template <>
-struct plotter <33> {
+struct plotter <32> {
   constexpr static const char* name = "pfCandidates/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -420,7 +406,7 @@ struct plotter <33> {
 
 
 template <>
-struct plotter <34> {
+struct plotter <33> {
   constexpr static const char* name = "vertices/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.vertices.size())};
@@ -430,7 +416,7 @@ struct plotter <34> {
 
 
 template <>
-struct plotter <35> {
+struct plotter <34> {
   constexpr static const char* name = "vertices/chi2";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -444,7 +430,7 @@ struct plotter <35> {
 
 
 template <>
-struct plotter <36> {
+struct plotter <35> {
   constexpr static const char* name = "vertices/ntrk";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -458,7 +444,7 @@ struct plotter <36> {
 
 
 template <>
-struct plotter <37> {
+struct plotter <36> {
   constexpr static const char* name = "vertices/ndof";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -472,7 +458,7 @@ struct plotter <37> {
 
 
 template <>
-struct plotter <38> {
+struct plotter <37> {
   constexpr static const char* name = "vertices/score";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -486,7 +472,7 @@ struct plotter <38> {
 
 
 template <>
-struct plotter <39> {
+struct plotter <38> {
   constexpr static const char* name = "vertices/normChi2";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -500,7 +486,7 @@ struct plotter <39> {
 
 
 template <>
-struct plotter <40> {
+struct plotter <39> {
   constexpr static const char* name = "vertices/pfRangeMax";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -514,7 +500,7 @@ struct plotter <40> {
 
 
 template <>
-struct plotter <41> {
+struct plotter <40> {
   constexpr static const char* name = "vertices/y";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -528,7 +514,7 @@ struct plotter <41> {
 
 
 template <>
-struct plotter <42> {
+struct plotter <41> {
   constexpr static const char* name = "vertices/x";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -542,7 +528,7 @@ struct plotter <42> {
 
 
 template <>
-struct plotter <43> {
+struct plotter <42> {
   constexpr static const char* name = "vertices/z";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -556,297 +542,7 @@ struct plotter <43> {
 
 
 template <>
-struct plotter <44> {
-  constexpr static const char* name = "secondaryVertices/size";
-  std::vector<float> operator () (panda::Event& event) {
-    std::vector<float> output {float(event.secondaryVertices.size())};
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <45> {
-  constexpr static const char* name = "secondaryVertices/daughters_size";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.daughters.size());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <46> {
-  constexpr static const char* name = "secondaryVertices/vtx3DVal";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.vtx3DVal);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <47> {
-  constexpr static const char* name = "secondaryVertices/pt";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.pt());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <48> {
-  constexpr static const char* name = "secondaryVertices/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <49> {
-  constexpr static const char* name = "secondaryVertices/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <50> {
-  constexpr static const char* name = "secondaryVertices/m";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.m());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <51> {
-  constexpr static const char* name = "secondaryVertices/chi2";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.chi2);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <52> {
-  constexpr static const char* name = "secondaryVertices/significance";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.significance);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <53> {
-  constexpr static const char* name = "secondaryVertices/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <54> {
-  constexpr static const char* name = "secondaryVertices/ndof";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.ndof);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <55> {
-  constexpr static const char* name = "secondaryVertices/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <56> {
-  constexpr static const char* name = "secondaryVertices/vtx3DeVal";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.vtx3DeVal);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <57> {
-  constexpr static const char* name = "secondaryVertices/py";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.py());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <58> {
-  constexpr static const char* name = "secondaryVertices/normChi2";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.normChi2());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <59> {
-  constexpr static const char* name = "secondaryVertices/ntrk";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.ntrk);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <60> {
-  constexpr static const char* name = "secondaryVertices/y";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.y);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <61> {
-  constexpr static const char* name = "secondaryVertices/x";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.x);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <62> {
-  constexpr static const char* name = "secondaryVertices/z";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.z);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <63> {
-  constexpr static const char* name = "secondaryVertices/px";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.px());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <64> {
-  constexpr static const char* name = "secondaryVertices/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.secondaryVertices)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <65> {
+struct plotter <43> {
   constexpr static const char* name = "tracks/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.tracks.size())};
@@ -856,7 +552,7 @@ struct plotter <65> {
 
 
 template <>
-struct plotter <66> {
+struct plotter <44> {
   constexpr static const char* name = "tracks/dxy";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -870,7 +566,7 @@ struct plotter <66> {
 
 
 template <>
-struct plotter <67> {
+struct plotter <45> {
   constexpr static const char* name = "tracks/dPhi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -884,7 +580,7 @@ struct plotter <67> {
 
 
 template <>
-struct plotter <68> {
+struct plotter <46> {
   constexpr static const char* name = "tracks/dz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -898,7 +594,7 @@ struct plotter <68> {
 
 
 template <>
-struct plotter <69> {
+struct plotter <47> {
   constexpr static const char* name = "tracks/ptError";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -912,7 +608,7 @@ struct plotter <69> {
 
 
 template <>
-struct plotter <70> {
+struct plotter <48> {
   constexpr static const char* name = "superClusters/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.superClusters.size())};
@@ -922,7 +618,7 @@ struct plotter <70> {
 
 
 template <>
-struct plotter <71> {
+struct plotter <49> {
   constexpr static const char* name = "superClusters/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -936,7 +632,7 @@ struct plotter <71> {
 
 
 template <>
-struct plotter <72> {
+struct plotter <50> {
   constexpr static const char* name = "superClusters/rawPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -950,7 +646,7 @@ struct plotter <72> {
 
 
 template <>
-struct plotter <73> {
+struct plotter <51> {
   constexpr static const char* name = "superClusters/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -964,7 +660,7 @@ struct plotter <73> {
 
 
 template <>
-struct plotter <74> {
+struct plotter <52> {
   constexpr static const char* name = "electrons/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.electrons.size())};
@@ -974,7 +670,7 @@ struct plotter <74> {
 
 
 template <>
-struct plotter <75> {
+struct plotter <53> {
   constexpr static const char* name = "electrons/superCluster_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -988,7 +684,7 @@ struct plotter <75> {
 
 
 template <>
-struct plotter <76> {
+struct plotter <54> {
   constexpr static const char* name = "electrons/dxy";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1002,21 +698,7 @@ struct plotter <76> {
 
 
 template <>
-struct plotter <77> {
-  constexpr static const char* name = "electrons/chIso";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.chIso);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <78> {
+struct plotter <55> {
   constexpr static const char* name = "electrons/phIsoPh";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1030,21 +712,7 @@ struct plotter <78> {
 
 
 template <>
-struct plotter <79> {
-  constexpr static const char* name = "electrons/trackIso";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.trackIso);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <80> {
+struct plotter <56> {
   constexpr static const char* name = "electrons/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1058,7 +726,7 @@ struct plotter <80> {
 
 
 template <>
-struct plotter <81> {
+struct plotter <57> {
   constexpr static const char* name = "electrons/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1072,7 +740,7 @@ struct plotter <81> {
 
 
 template <>
-struct plotter <82> {
+struct plotter <58> {
   constexpr static const char* name = "electrons/ecalIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1086,7 +754,7 @@ struct plotter <82> {
 
 
 template <>
-struct plotter <83> {
+struct plotter <59> {
   constexpr static const char* name = "electrons/medium";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1100,7 +768,7 @@ struct plotter <83> {
 
 
 template <>
-struct plotter <84> {
+struct plotter <60> {
   constexpr static const char* name = "electrons/isoPUOffset";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1114,7 +782,7 @@ struct plotter <84> {
 
 
 template <>
-struct plotter <85> {
+struct plotter <61> {
   constexpr static const char* name = "electrons/pfPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1128,35 +796,7 @@ struct plotter <85> {
 
 
 template <>
-struct plotter <86> {
-  constexpr static const char* name = "electrons/trackP";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.trackP);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <87> {
-  constexpr static const char* name = "electrons/ecalE";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.ecalE);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <88> {
+struct plotter <62> {
   constexpr static const char* name = "electrons/sipip";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1170,7 +810,7 @@ struct plotter <88> {
 
 
 template <>
-struct plotter <89> {
+struct plotter <63> {
   constexpr static const char* name = "electrons/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1184,7 +824,7 @@ struct plotter <89> {
 
 
 template <>
-struct plotter <90> {
+struct plotter <64> {
   constexpr static const char* name = "electrons/hltsafe";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1198,63 +838,7 @@ struct plotter <90> {
 
 
 template <>
-struct plotter <91> {
-  constexpr static const char* name = "electrons/tripleCharge";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.tripleCharge);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <92> {
-  constexpr static const char* name = "electrons/charge";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.charge);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <93> {
-  constexpr static const char* name = "electrons/dEtaInSeed";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.dEtaInSeed);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <94> {
-  constexpr static const char* name = "electrons/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <95> {
+struct plotter <65> {
   constexpr static const char* name = "electrons/tight";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1268,7 +852,35 @@ struct plotter <95> {
 
 
 template <>
-struct plotter <96> {
+struct plotter <66> {
+  constexpr static const char* name = "electrons/charge";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.electrons)
+      output.push_back(i.charge);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <67> {
+  constexpr static const char* name = "electrons/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.electrons)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <68> {
   constexpr static const char* name = "electrons/sieie";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1282,7 +894,7 @@ struct plotter <96> {
 
 
 template <>
-struct plotter <97> {
+struct plotter <69> {
   constexpr static const char* name = "electrons/eseed";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1296,7 +908,7 @@ struct plotter <97> {
 
 
 template <>
-struct plotter <98> {
+struct plotter <70> {
   constexpr static const char* name = "electrons/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1310,7 +922,7 @@ struct plotter <98> {
 
 
 template <>
-struct plotter <99> {
+struct plotter <71> {
   constexpr static const char* name = "electrons/veto";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1324,21 +936,7 @@ struct plotter <99> {
 
 
 template <>
-struct plotter <100> {
-  constexpr static const char* name = "electrons/conversionVeto";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.conversionVeto);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <101> {
+struct plotter <72> {
   constexpr static const char* name = "electrons/loose";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1352,7 +950,7 @@ struct plotter <101> {
 
 
 template <>
-struct plotter <102> {
+struct plotter <73> {
   constexpr static const char* name = "electrons/regPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1366,7 +964,7 @@ struct plotter <102> {
 
 
 template <>
-struct plotter <103> {
+struct plotter <74> {
   constexpr static const char* name = "electrons/nhIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1380,13 +978,13 @@ struct plotter <103> {
 
 
 template <>
-struct plotter <104> {
-  constexpr static const char* name = "electrons/dPhiIn";
+struct plotter <75> {
+  constexpr static const char* name = "electrons/originalPt";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.electrons)
-      output.push_back(i.dPhiIn);
+      output.push_back(i.originalPt);
 
     return output;
   }
@@ -1394,7 +992,7 @@ struct plotter <104> {
 
 
 template <>
-struct plotter <105> {
+struct plotter <76> {
   constexpr static const char* name = "electrons/dz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1408,7 +1006,7 @@ struct plotter <105> {
 
 
 template <>
-struct plotter <106> {
+struct plotter <77> {
   constexpr static const char* name = "electrons/chIsoPh";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1422,7 +1020,7 @@ struct plotter <106> {
 
 
 template <>
-struct plotter <107> {
+struct plotter <78> {
   constexpr static const char* name = "electrons/phIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1436,7 +1034,7 @@ struct plotter <107> {
 
 
 template <>
-struct plotter <108> {
+struct plotter <79> {
   constexpr static const char* name = "electrons/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1450,7 +1048,7 @@ struct plotter <108> {
 
 
 template <>
-struct plotter <109> {
+struct plotter <80> {
   constexpr static const char* name = "electrons/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1464,7 +1062,7 @@ struct plotter <109> {
 
 
 template <>
-struct plotter <110> {
+struct plotter <81> {
   constexpr static const char* name = "electrons/nhIsoPh";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1478,7 +1076,7 @@ struct plotter <110> {
 
 
 template <>
-struct plotter <111> {
+struct plotter <82> {
   constexpr static const char* name = "electrons/hcalIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1492,7 +1090,7 @@ struct plotter <111> {
 
 
 template <>
-struct plotter <112> {
+struct plotter <83> {
   constexpr static const char* name = "electrons/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1506,7 +1104,7 @@ struct plotter <112> {
 
 
 template <>
-struct plotter <113> {
+struct plotter <84> {
   constexpr static const char* name = "electrons/puIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1520,7 +1118,7 @@ struct plotter <113> {
 
 
 template <>
-struct plotter <114> {
+struct plotter <85> {
   constexpr static const char* name = "electrons/combIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1534,13 +1132,13 @@ struct plotter <114> {
 
 
 template <>
-struct plotter <115> {
-  constexpr static const char* name = "electrons/r9";
+struct plotter <86> {
+  constexpr static const char* name = "electrons/chIso";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.electrons)
-      output.push_back(i.r9);
+      output.push_back(i.chIso);
 
     return output;
   }
@@ -1548,21 +1146,7 @@ struct plotter <115> {
 
 
 template <>
-struct plotter <116> {
-  constexpr static const char* name = "electrons/nMissingHits";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.electrons)
-      output.push_back(i.nMissingHits);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <117> {
+struct plotter <87> {
   constexpr static const char* name = "electrons/hOverE";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1576,7 +1160,7 @@ struct plotter <117> {
 
 
 template <>
-struct plotter <118> {
+struct plotter <88> {
   constexpr static const char* name = "electrons/smearedPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1590,7 +1174,7 @@ struct plotter <118> {
 
 
 template <>
-struct plotter <119> {
+struct plotter <89> {
   constexpr static const char* name = "electrons/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -1604,7 +1188,7 @@ struct plotter <119> {
 
 
 template <>
-struct plotter <120> {
+struct plotter <90> {
   constexpr static const char* name = "muons/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.muons.size())};
@@ -1614,413 +1198,7 @@ struct plotter <120> {
 
 
 template <>
-struct plotter <121> {
-  constexpr static const char* name = "muons/dxy";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.dxy);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <122> {
-  constexpr static const char* name = "muons/global";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.global);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <123> {
-  constexpr static const char* name = "muons/chIso";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.chIso);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <124> {
-  constexpr static const char* name = "muons/normChi2";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.normChi2);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <125> {
-  constexpr static const char* name = "muons/trkLayersWithMmt";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.trkLayersWithMmt);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <126> {
-  constexpr static const char* name = "muons/pfPt";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.pfPt);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <127> {
-  constexpr static const char* name = "muons/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <128> {
-  constexpr static const char* name = "muons/hltsafe";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.hltsafe);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <129> {
-  constexpr static const char* name = "muons/tight";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.tight);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <130> {
-  constexpr static const char* name = "muons/charge";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.charge);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <131> {
-  constexpr static const char* name = "muons/tracker";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.tracker);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <132> {
-  constexpr static const char* name = "muons/pf";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.pf);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <133> {
-  constexpr static const char* name = "muons/segmentCompatibility";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.segmentCompatibility);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <134> {
-  constexpr static const char* name = "muons/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <135> {
-  constexpr static const char* name = "muons/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <136> {
-  constexpr static const char* name = "muons/medium";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.medium);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <137> {
-  constexpr static const char* name = "muons/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <138> {
-  constexpr static const char* name = "muons/validFraction";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.validFraction);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <139> {
-  constexpr static const char* name = "muons/nMatched";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.nMatched);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <140> {
-  constexpr static const char* name = "muons/loose";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.loose);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <141> {
-  constexpr static const char* name = "muons/mediumBtoF";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.mediumBtoF);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <142> {
-  constexpr static const char* name = "muons/nValidPixel";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.nValidPixel);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <143> {
-  constexpr static const char* name = "muons/nhIso";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.nhIso);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <144> {
-  constexpr static const char* name = "muons/nValidMuon";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.nValidMuon);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <145> {
-  constexpr static const char* name = "muons/dz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.dz);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <146> {
-  constexpr static const char* name = "muons/chi2LocalPosition";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.chi2LocalPosition);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <147> {
-  constexpr static const char* name = "muons/pixLayersWithMmt";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.pixLayersWithMmt);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <148> {
-  constexpr static const char* name = "muons/phIso";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.phIso);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <149> {
-  constexpr static const char* name = "muons/px";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.muons)
-      output.push_back(i.px());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <150> {
+struct plotter <91> {
   constexpr static const char* name = "muons/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2034,7 +1212,63 @@ struct plotter <150> {
 
 
 template <>
-struct plotter <151> {
+struct plotter <92> {
+  constexpr static const char* name = "muons/p";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.p());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <93> {
+  constexpr static const char* name = "muons/medium";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.medium);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <94> {
+  constexpr static const char* name = "muons/eta";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.eta());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <95> {
+  constexpr static const char* name = "muons/pfPt";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.pfPt);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <96> {
   constexpr static const char* name = "muons/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2048,7 +1282,7 @@ struct plotter <151> {
 
 
 template <>
-struct plotter <152> {
+struct plotter <97> {
   constexpr static const char* name = "muons/puIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2062,7 +1296,7 @@ struct plotter <152> {
 
 
 template <>
-struct plotter <153> {
+struct plotter <98> {
   constexpr static const char* name = "muons/combIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2076,7 +1310,49 @@ struct plotter <153> {
 
 
 template <>
-struct plotter <154> {
+struct plotter <99> {
+  constexpr static const char* name = "muons/loose";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.loose);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <100> {
+  constexpr static const char* name = "muons/chIso";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.chIso);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <101> {
+  constexpr static const char* name = "muons/mediumBtoF";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.mediumBtoF);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <102> {
   constexpr static const char* name = "muons/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2090,13 +1366,13 @@ struct plotter <154> {
 
 
 template <>
-struct plotter <155> {
-  constexpr static const char* name = "muons/r03Iso";
+struct plotter <103> {
+  constexpr static const char* name = "muons/nhIso";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.muons)
-      output.push_back(i.r03Iso);
+      output.push_back(i.nhIso);
 
     return output;
   }
@@ -2104,7 +1380,35 @@ struct plotter <155> {
 
 
 template <>
-struct plotter <156> {
+struct plotter <104> {
+  constexpr static const char* name = "muons/tight";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.tight);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <105> {
+  constexpr static const char* name = "muons/charge";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.charge);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <106> {
   constexpr static const char* name = "muons/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2118,13 +1422,13 @@ struct plotter <156> {
 
 
 template <>
-struct plotter <157> {
-  constexpr static const char* name = "muons/trkKink";
+struct plotter <107> {
+  constexpr static const char* name = "muons/phIso";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.muons)
-      output.push_back(i.trkKink);
+      output.push_back(i.phIso);
 
     return output;
   }
@@ -2132,13 +1436,13 @@ struct plotter <157> {
 
 
 template <>
-struct plotter <158> {
-  constexpr static const char* name = "muons/soft";
+struct plotter <108> {
+  constexpr static const char* name = "muons/pz";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.muons)
-      output.push_back(i.soft);
+      output.push_back(i.pz());
 
     return output;
   }
@@ -2146,7 +1450,35 @@ struct plotter <158> {
 
 
 template <>
-struct plotter <159> {
+struct plotter <109> {
+  constexpr static const char* name = "muons/px";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.px());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <110> {
+  constexpr static const char* name = "muons/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.muons)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <111> {
   constexpr static const char* name = "taus/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.taus.size())};
@@ -2156,7 +1488,7 @@ struct plotter <159> {
 
 
 template <>
-struct plotter <160> {
+struct plotter <112> {
   constexpr static const char* name = "taus/vertex_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2170,7 +1502,7 @@ struct plotter <160> {
 
 
 template <>
-struct plotter <161> {
+struct plotter <113> {
   constexpr static const char* name = "taus/matchedGen_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2184,7 +1516,7 @@ struct plotter <161> {
 
 
 template <>
-struct plotter <162> {
+struct plotter <114> {
   constexpr static const char* name = "taus/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2198,7 +1530,7 @@ struct plotter <162> {
 
 
 template <>
-struct plotter <163> {
+struct plotter <115> {
   constexpr static const char* name = "taus/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2212,7 +1544,7 @@ struct plotter <163> {
 
 
 template <>
-struct plotter <164> {
+struct plotter <116> {
   constexpr static const char* name = "taus/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2226,7 +1558,7 @@ struct plotter <164> {
 
 
 template <>
-struct plotter <165> {
+struct plotter <117> {
   constexpr static const char* name = "taus/decayMode";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2240,7 +1572,7 @@ struct plotter <165> {
 
 
 template <>
-struct plotter <166> {
+struct plotter <118> {
   constexpr static const char* name = "taus/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2254,7 +1586,7 @@ struct plotter <166> {
 
 
 template <>
-struct plotter <167> {
+struct plotter <119> {
   constexpr static const char* name = "taus/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2268,7 +1600,7 @@ struct plotter <167> {
 
 
 template <>
-struct plotter <168> {
+struct plotter <120> {
   constexpr static const char* name = "taus/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2282,7 +1614,7 @@ struct plotter <168> {
 
 
 template <>
-struct plotter <169> {
+struct plotter <121> {
   constexpr static const char* name = "taus/isoDeltaBetaCorr";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2296,7 +1628,7 @@ struct plotter <169> {
 
 
 template <>
-struct plotter <170> {
+struct plotter <122> {
   constexpr static const char* name = "taus/charge";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2310,7 +1642,7 @@ struct plotter <170> {
 
 
 template <>
-struct plotter <171> {
+struct plotter <123> {
   constexpr static const char* name = "taus/iso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2324,7 +1656,7 @@ struct plotter <171> {
 
 
 template <>
-struct plotter <172> {
+struct plotter <124> {
   constexpr static const char* name = "taus/looseIsoMVA";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2338,7 +1670,7 @@ struct plotter <172> {
 
 
 template <>
-struct plotter <173> {
+struct plotter <125> {
   constexpr static const char* name = "taus/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2352,7 +1684,7 @@ struct plotter <173> {
 
 
 template <>
-struct plotter <174> {
+struct plotter <126> {
   constexpr static const char* name = "taus/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2366,7 +1698,7 @@ struct plotter <174> {
 
 
 template <>
-struct plotter <175> {
+struct plotter <127> {
   constexpr static const char* name = "taus/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2380,7 +1712,7 @@ struct plotter <175> {
 
 
 template <>
-struct plotter <176> {
+struct plotter <128> {
   constexpr static const char* name = "taus/looseIsoMVAOld";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2394,7 +1726,7 @@ struct plotter <176> {
 
 
 template <>
-struct plotter <177> {
+struct plotter <129> {
   constexpr static const char* name = "taus/decayModeNew";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2408,7 +1740,7 @@ struct plotter <177> {
 
 
 template <>
-struct plotter <178> {
+struct plotter <130> {
   constexpr static const char* name = "photons/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.photons.size())};
@@ -2418,7 +1750,7 @@ struct plotter <178> {
 
 
 template <>
-struct plotter <179> {
+struct plotter <131> {
   constexpr static const char* name = "photons/superCluster_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2432,7 +1764,7 @@ struct plotter <179> {
 
 
 template <>
-struct plotter <180> {
+struct plotter <132> {
   constexpr static const char* name = "photons/matchedPF_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2446,7 +1778,7 @@ struct plotter <180> {
 
 
 template <>
-struct plotter <181> {
+struct plotter <133> {
   constexpr static const char* name = "photons/matchedGen_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2460,7 +1792,7 @@ struct plotter <181> {
 
 
 template <>
-struct plotter <182> {
+struct plotter <134> {
   constexpr static const char* name = "photons/emax";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2474,7 +1806,7 @@ struct plotter <182> {
 
 
 template <>
-struct plotter <183> {
+struct plotter <135> {
   constexpr static const char* name = "photons/chIsoMax";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2488,7 +1820,7 @@ struct plotter <183> {
 
 
 template <>
-struct plotter <184> {
+struct plotter <136> {
   constexpr static const char* name = "photons/e2nd";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2502,7 +1834,7 @@ struct plotter <184> {
 
 
 template <>
-struct plotter <185> {
+struct plotter <137> {
   constexpr static const char* name = "photons/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2516,7 +1848,7 @@ struct plotter <185> {
 
 
 template <>
-struct plotter <186> {
+struct plotter <138> {
   constexpr static const char* name = "photons/etop";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2530,7 +1862,7 @@ struct plotter <186> {
 
 
 template <>
-struct plotter <187> {
+struct plotter <139> {
   constexpr static const char* name = "photons/phiWidth";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2544,7 +1876,7 @@ struct plotter <187> {
 
 
 template <>
-struct plotter <188> {
+struct plotter <140> {
   constexpr static const char* name = "photons/highpt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2558,7 +1890,7 @@ struct plotter <188> {
 
 
 template <>
-struct plotter <189> {
+struct plotter <141> {
   constexpr static const char* name = "photons/mipEnergy";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2572,7 +1904,7 @@ struct plotter <189> {
 
 
 template <>
-struct plotter <190> {
+struct plotter <142> {
   constexpr static const char* name = "photons/pixelVeto";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2586,7 +1918,7 @@ struct plotter <190> {
 
 
 template <>
-struct plotter <191> {
+struct plotter <143> {
   constexpr static const char* name = "photons/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2600,7 +1932,7 @@ struct plotter <191> {
 
 
 template <>
-struct plotter <192> {
+struct plotter <144> {
   constexpr static const char* name = "photons/pfPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2614,7 +1946,7 @@ struct plotter <192> {
 
 
 template <>
-struct plotter <193> {
+struct plotter <145> {
   constexpr static const char* name = "photons/eleft";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2628,7 +1960,7 @@ struct plotter <193> {
 
 
 template <>
-struct plotter <194> {
+struct plotter <146> {
   constexpr static const char* name = "photons/sipip";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2642,7 +1974,7 @@ struct plotter <194> {
 
 
 template <>
-struct plotter <195> {
+struct plotter <147> {
   constexpr static const char* name = "photons/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2656,7 +1988,7 @@ struct plotter <195> {
 
 
 template <>
-struct plotter <196> {
+struct plotter <148> {
   constexpr static const char* name = "photons/tight";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2670,7 +2002,7 @@ struct plotter <196> {
 
 
 template <>
-struct plotter <197> {
+struct plotter <149> {
   constexpr static const char* name = "photons/genIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2684,7 +2016,7 @@ struct plotter <197> {
 
 
 template <>
-struct plotter <198> {
+struct plotter <150> {
   constexpr static const char* name = "photons/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2698,7 +2030,7 @@ struct plotter <198> {
 
 
 template <>
-struct plotter <199> {
+struct plotter <151> {
   constexpr static const char* name = "photons/sieie";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2712,7 +2044,7 @@ struct plotter <199> {
 
 
 template <>
-struct plotter <200> {
+struct plotter <152> {
   constexpr static const char* name = "photons/medium";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2726,7 +2058,7 @@ struct plotter <200> {
 
 
 template <>
-struct plotter <201> {
+struct plotter <153> {
   constexpr static const char* name = "photons/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2740,7 +2072,7 @@ struct plotter <201> {
 
 
 template <>
-struct plotter <202> {
+struct plotter <154> {
   constexpr static const char* name = "photons/loose";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2754,7 +2086,7 @@ struct plotter <202> {
 
 
 template <>
-struct plotter <203> {
+struct plotter <155> {
   constexpr static const char* name = "photons/eright";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2768,7 +2100,7 @@ struct plotter <203> {
 
 
 template <>
-struct plotter <204> {
+struct plotter <156> {
   constexpr static const char* name = "photons/nhIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2782,7 +2114,21 @@ struct plotter <204> {
 
 
 template <>
-struct plotter <205> {
+struct plotter <157> {
+  constexpr static const char* name = "photons/originalPt";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.photons)
+      output.push_back(i.originalPt);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <158> {
   constexpr static const char* name = "photons/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2796,7 +2142,7 @@ struct plotter <205> {
 
 
 template <>
-struct plotter <206> {
+struct plotter <159> {
   constexpr static const char* name = "photons/ebottom";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2810,7 +2156,7 @@ struct plotter <206> {
 
 
 template <>
-struct plotter <207> {
+struct plotter <160> {
   constexpr static const char* name = "photons/csafeVeto";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2824,7 +2170,7 @@ struct plotter <207> {
 
 
 template <>
-struct plotter <208> {
+struct plotter <161> {
   constexpr static const char* name = "photons/phIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2838,7 +2184,7 @@ struct plotter <208> {
 
 
 template <>
-struct plotter <209> {
+struct plotter <162> {
   constexpr static const char* name = "photons/regPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2852,7 +2198,7 @@ struct plotter <209> {
 
 
 template <>
-struct plotter <210> {
+struct plotter <163> {
   constexpr static const char* name = "photons/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2866,7 +2212,7 @@ struct plotter <210> {
 
 
 template <>
-struct plotter <211> {
+struct plotter <164> {
   constexpr static const char* name = "photons/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2880,7 +2226,7 @@ struct plotter <211> {
 
 
 template <>
-struct plotter <212> {
+struct plotter <165> {
   constexpr static const char* name = "photons/r9";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2894,7 +2240,7 @@ struct plotter <212> {
 
 
 template <>
-struct plotter <213> {
+struct plotter <166> {
   constexpr static const char* name = "photons/timeSpan";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2908,7 +2254,7 @@ struct plotter <213> {
 
 
 template <>
-struct plotter <214> {
+struct plotter <167> {
   constexpr static const char* name = "photons/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2922,7 +2268,7 @@ struct plotter <214> {
 
 
 template <>
-struct plotter <215> {
+struct plotter <168> {
   constexpr static const char* name = "photons/etaWidth";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2936,7 +2282,7 @@ struct plotter <215> {
 
 
 template <>
-struct plotter <216> {
+struct plotter <169> {
   constexpr static const char* name = "photons/chIso";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2950,7 +2296,7 @@ struct plotter <216> {
 
 
 template <>
-struct plotter <217> {
+struct plotter <170> {
   constexpr static const char* name = "photons/hOverE";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2964,7 +2310,7 @@ struct plotter <217> {
 
 
 template <>
-struct plotter <218> {
+struct plotter <171> {
   constexpr static const char* name = "photons/smearedPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2978,7 +2324,7 @@ struct plotter <218> {
 
 
 template <>
-struct plotter <219> {
+struct plotter <172> {
   constexpr static const char* name = "photons/time";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -2992,7 +2338,7 @@ struct plotter <219> {
 
 
 template <>
-struct plotter <220> {
+struct plotter <173> {
   constexpr static const char* name = "chsAK4Jets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.chsAK4Jets.size())};
@@ -3002,7 +2348,7 @@ struct plotter <220> {
 
 
 template <>
-struct plotter <221> {
+struct plotter <174> {
   constexpr static const char* name = "chsAK4Jets/matchedGenJet_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3016,7 +2362,7 @@ struct plotter <221> {
 
 
 template <>
-struct plotter <222> {
+struct plotter <175> {
   constexpr static const char* name = "chsAK4Jets/constituents_size";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3030,35 +2376,7 @@ struct plotter <222> {
 
 
 template <>
-struct plotter <223> {
-  constexpr static const char* name = "chsAK4Jets/secondaryVertex_isValid";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.secondaryVertex.isValid());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <224> {
-  constexpr static const char* name = "chsAK4Jets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <225> {
+struct plotter <176> {
   constexpr static const char* name = "chsAK4Jets/nhf";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3072,7 +2390,7 @@ struct plotter <225> {
 
 
 template <>
-struct plotter <226> {
+struct plotter <177> {
   constexpr static const char* name = "chsAK4Jets/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3086,91 +2404,7 @@ struct plotter <226> {
 
 
 template <>
-struct plotter <227> {
-  constexpr static const char* name = "chsAK4Jets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <228> {
-  constexpr static const char* name = "chsAK4Jets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <229> {
-  constexpr static const char* name = "chsAK4Jets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <230> {
-  constexpr static const char* name = "chsAK4Jets/deepCSVcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCSVcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <231> {
-  constexpr static const char* name = "chsAK4Jets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <232> {
-  constexpr static const char* name = "chsAK4Jets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <233> {
+struct plotter <178> {
   constexpr static const char* name = "chsAK4Jets/chf";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3184,7 +2418,7 @@ struct plotter <233> {
 
 
 template <>
-struct plotter <234> {
+struct plotter <179> {
   constexpr static const char* name = "chsAK4Jets/area";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3198,21 +2432,7 @@ struct plotter <234> {
 
 
 template <>
-struct plotter <235> {
-  constexpr static const char* name = "chsAK4Jets/nef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.nef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <236> {
+struct plotter <180> {
   constexpr static const char* name = "chsAK4Jets/ptCorrDown";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3226,7 +2446,7 @@ struct plotter <236> {
 
 
 template <>
-struct plotter <237> {
+struct plotter <181> {
   constexpr static const char* name = "chsAK4Jets/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3240,21 +2460,7 @@ struct plotter <237> {
 
 
 template <>
-struct plotter <238> {
-  constexpr static const char* name = "chsAK4Jets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <239> {
+struct plotter <182> {
   constexpr static const char* name = "chsAK4Jets/tight";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3268,7 +2474,7 @@ struct plotter <239> {
 
 
 template <>
-struct plotter <240> {
+struct plotter <183> {
   constexpr static const char* name = "chsAK4Jets/puid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3282,7 +2488,7 @@ struct plotter <240> {
 
 
 template <>
-struct plotter <241> {
+struct plotter <184> {
   constexpr static const char* name = "chsAK4Jets/qgl";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3296,7 +2502,7 @@ struct plotter <241> {
 
 
 template <>
-struct plotter <242> {
+struct plotter <185> {
   constexpr static const char* name = "chsAK4Jets/csv";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3310,7 +2516,7 @@ struct plotter <242> {
 
 
 template <>
-struct plotter <243> {
+struct plotter <186> {
   constexpr static const char* name = "chsAK4Jets/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3324,21 +2530,7 @@ struct plotter <243> {
 
 
 template <>
-struct plotter <244> {
-  constexpr static const char* name = "chsAK4Jets/cef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.cef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <245> {
+struct plotter <187> {
   constexpr static const char* name = "chsAK4Jets/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3352,7 +2544,7 @@ struct plotter <245> {
 
 
 template <>
-struct plotter <246> {
+struct plotter <188> {
   constexpr static const char* name = "chsAK4Jets/rawPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3366,7 +2558,7 @@ struct plotter <246> {
 
 
 template <>
-struct plotter <247> {
+struct plotter <189> {
   constexpr static const char* name = "chsAK4Jets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3380,7 +2572,7 @@ struct plotter <247> {
 
 
 template <>
-struct plotter <248> {
+struct plotter <190> {
   constexpr static const char* name = "chsAK4Jets/loose";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3394,21 +2586,7 @@ struct plotter <248> {
 
 
 template <>
-struct plotter <249> {
-  constexpr static const char* name = "chsAK4Jets/deepCMVAc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCMVAc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <250> {
+struct plotter <191> {
   constexpr static const char* name = "chsAK4Jets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3422,7 +2600,7 @@ struct plotter <250> {
 
 
 template <>
-struct plotter <251> {
+struct plotter <192> {
   constexpr static const char* name = "chsAK4Jets/monojet";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3436,7 +2614,7 @@ struct plotter <251> {
 
 
 template <>
-struct plotter <252> {
+struct plotter <193> {
   constexpr static const char* name = "chsAK4Jets/ptSmearDown";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3450,7 +2628,7 @@ struct plotter <252> {
 
 
 template <>
-struct plotter <253> {
+struct plotter <194> {
   constexpr static const char* name = "chsAK4Jets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3464,7 +2642,7 @@ struct plotter <253> {
 
 
 template <>
-struct plotter <254> {
+struct plotter <195> {
   constexpr static const char* name = "chsAK4Jets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3478,35 +2656,7 @@ struct plotter <254> {
 
 
 template <>
-struct plotter <255> {
-  constexpr static const char* name = "chsAK4Jets/deepCSVb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCSVb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <256> {
-  constexpr static const char* name = "chsAK4Jets/deepCSVc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK4Jets)
-      output.push_back(i.deepCSVc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <257> {
+struct plotter <196> {
   constexpr static const char* name = "chsAK4Jets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3520,7 +2670,7 @@ struct plotter <257> {
 
 
 template <>
-struct plotter <258> {
+struct plotter <197> {
   constexpr static const char* name = "chsAK4Jets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3534,7 +2684,7 @@ struct plotter <258> {
 
 
 template <>
-struct plotter <259> {
+struct plotter <198> {
   constexpr static const char* name = "chsAK4Jets/ptSmear";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3548,7 +2698,7 @@ struct plotter <259> {
 
 
 template <>
-struct plotter <260> {
+struct plotter <199> {
   constexpr static const char* name = "chsAK4Jets/ptSmearUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3562,7 +2712,7 @@ struct plotter <260> {
 
 
 template <>
-struct plotter <261> {
+struct plotter <200> {
   constexpr static const char* name = "puppiAK4Jets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiAK4Jets.size())};
@@ -3572,7 +2722,7 @@ struct plotter <261> {
 
 
 template <>
-struct plotter <262> {
+struct plotter <201> {
   constexpr static const char* name = "puppiAK4Jets/matchedGenJet_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3586,7 +2736,7 @@ struct plotter <262> {
 
 
 template <>
-struct plotter <263> {
+struct plotter <202> {
   constexpr static const char* name = "puppiAK4Jets/constituents_size";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3600,35 +2750,7 @@ struct plotter <263> {
 
 
 template <>
-struct plotter <264> {
-  constexpr static const char* name = "puppiAK4Jets/secondaryVertex_isValid";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.secondaryVertex.isValid());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <265> {
-  constexpr static const char* name = "puppiAK4Jets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <266> {
+struct plotter <203> {
   constexpr static const char* name = "puppiAK4Jets/nhf";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3642,7 +2764,7 @@ struct plotter <266> {
 
 
 template <>
-struct plotter <267> {
+struct plotter <204> {
   constexpr static const char* name = "puppiAK4Jets/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3656,91 +2778,7 @@ struct plotter <267> {
 
 
 template <>
-struct plotter <268> {
-  constexpr static const char* name = "puppiAK4Jets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <269> {
-  constexpr static const char* name = "puppiAK4Jets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <270> {
-  constexpr static const char* name = "puppiAK4Jets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <271> {
-  constexpr static const char* name = "puppiAK4Jets/deepCSVcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCSVcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <272> {
-  constexpr static const char* name = "puppiAK4Jets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <273> {
-  constexpr static const char* name = "puppiAK4Jets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <274> {
+struct plotter <205> {
   constexpr static const char* name = "puppiAK4Jets/chf";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3754,7 +2792,7 @@ struct plotter <274> {
 
 
 template <>
-struct plotter <275> {
+struct plotter <206> {
   constexpr static const char* name = "puppiAK4Jets/area";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3768,21 +2806,7 @@ struct plotter <275> {
 
 
 template <>
-struct plotter <276> {
-  constexpr static const char* name = "puppiAK4Jets/nef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.nef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <277> {
+struct plotter <207> {
   constexpr static const char* name = "puppiAK4Jets/ptCorrDown";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3796,7 +2820,7 @@ struct plotter <277> {
 
 
 template <>
-struct plotter <278> {
+struct plotter <208> {
   constexpr static const char* name = "puppiAK4Jets/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3810,21 +2834,7 @@ struct plotter <278> {
 
 
 template <>
-struct plotter <279> {
-  constexpr static const char* name = "puppiAK4Jets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <280> {
+struct plotter <209> {
   constexpr static const char* name = "puppiAK4Jets/tight";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3838,7 +2848,7 @@ struct plotter <280> {
 
 
 template <>
-struct plotter <281> {
+struct plotter <210> {
   constexpr static const char* name = "puppiAK4Jets/puid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3852,7 +2862,7 @@ struct plotter <281> {
 
 
 template <>
-struct plotter <282> {
+struct plotter <211> {
   constexpr static const char* name = "puppiAK4Jets/qgl";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3866,7 +2876,7 @@ struct plotter <282> {
 
 
 template <>
-struct plotter <283> {
+struct plotter <212> {
   constexpr static const char* name = "puppiAK4Jets/csv";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3880,7 +2890,7 @@ struct plotter <283> {
 
 
 template <>
-struct plotter <284> {
+struct plotter <213> {
   constexpr static const char* name = "puppiAK4Jets/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3894,21 +2904,7 @@ struct plotter <284> {
 
 
 template <>
-struct plotter <285> {
-  constexpr static const char* name = "puppiAK4Jets/cef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.cef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <286> {
+struct plotter <214> {
   constexpr static const char* name = "puppiAK4Jets/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3922,7 +2918,7 @@ struct plotter <286> {
 
 
 template <>
-struct plotter <287> {
+struct plotter <215> {
   constexpr static const char* name = "puppiAK4Jets/rawPt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3936,7 +2932,7 @@ struct plotter <287> {
 
 
 template <>
-struct plotter <288> {
+struct plotter <216> {
   constexpr static const char* name = "puppiAK4Jets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3950,7 +2946,7 @@ struct plotter <288> {
 
 
 template <>
-struct plotter <289> {
+struct plotter <217> {
   constexpr static const char* name = "puppiAK4Jets/loose";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3964,21 +2960,7 @@ struct plotter <289> {
 
 
 template <>
-struct plotter <290> {
-  constexpr static const char* name = "puppiAK4Jets/deepCMVAc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCMVAc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <291> {
+struct plotter <218> {
   constexpr static const char* name = "puppiAK4Jets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -3992,7 +2974,7 @@ struct plotter <291> {
 
 
 template <>
-struct plotter <292> {
+struct plotter <219> {
   constexpr static const char* name = "puppiAK4Jets/monojet";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4006,7 +2988,7 @@ struct plotter <292> {
 
 
 template <>
-struct plotter <293> {
+struct plotter <220> {
   constexpr static const char* name = "puppiAK4Jets/ptSmearDown";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4020,7 +3002,7 @@ struct plotter <293> {
 
 
 template <>
-struct plotter <294> {
+struct plotter <221> {
   constexpr static const char* name = "puppiAK4Jets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4034,7 +3016,7 @@ struct plotter <294> {
 
 
 template <>
-struct plotter <295> {
+struct plotter <222> {
   constexpr static const char* name = "puppiAK4Jets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4048,35 +3030,7 @@ struct plotter <295> {
 
 
 template <>
-struct plotter <296> {
-  constexpr static const char* name = "puppiAK4Jets/deepCSVb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCSVb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <297> {
-  constexpr static const char* name = "puppiAK4Jets/deepCSVc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK4Jets)
-      output.push_back(i.deepCSVc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <298> {
+struct plotter <223> {
   constexpr static const char* name = "puppiAK4Jets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4090,7 +3044,7 @@ struct plotter <298> {
 
 
 template <>
-struct plotter <299> {
+struct plotter <224> {
   constexpr static const char* name = "puppiAK4Jets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4104,7 +3058,7 @@ struct plotter <299> {
 
 
 template <>
-struct plotter <300> {
+struct plotter <225> {
   constexpr static const char* name = "puppiAK4Jets/ptSmear";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4118,7 +3072,7 @@ struct plotter <300> {
 
 
 template <>
-struct plotter <301> {
+struct plotter <226> {
   constexpr static const char* name = "puppiAK4Jets/ptSmearUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4132,7 +3086,7 @@ struct plotter <301> {
 
 
 template <>
-struct plotter <302> {
+struct plotter <227> {
   constexpr static const char* name = "chsAK8Jets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.chsAK8Jets.size())};
@@ -4142,7 +3096,7 @@ struct plotter <302> {
 
 
 template <>
-struct plotter <303> {
+struct plotter <228> {
   constexpr static const char* name = "chsAK8Jets/subjets_size";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4156,21 +3110,7 @@ struct plotter <303> {
 
 
 template <>
-struct plotter <304> {
-  constexpr static const char* name = "chsAK8Jets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <305> {
+struct plotter <229> {
   constexpr static const char* name = "chsAK8Jets/nhf";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4184,7 +3124,7 @@ struct plotter <305> {
 
 
 template <>
-struct plotter <306> {
+struct plotter <230> {
   constexpr static const char* name = "chsAK8Jets/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4198,385 +3138,7 @@ struct plotter <306> {
 
 
 template <>
-struct plotter <307> {
-  constexpr static const char* name = "chsAK8Jets/cef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.cef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <308> {
-  constexpr static const char* name = "chsAK8Jets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <309> {
-  constexpr static const char* name = "chsAK8Jets/tight";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.tight);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <310> {
-  constexpr static const char* name = "chsAK8Jets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <311> {
-  constexpr static const char* name = "chsAK8Jets/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <312> {
-  constexpr static const char* name = "chsAK8Jets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <313> {
-  constexpr static const char* name = "chsAK8Jets/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <314> {
-  constexpr static const char* name = "chsAK8Jets/htt_frec";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.htt_frec);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <315> {
-  constexpr static const char* name = "chsAK8Jets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <316> {
-  constexpr static const char* name = "chsAK8Jets/chf";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.chf);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <317> {
-  constexpr static const char* name = "chsAK8Jets/area";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.area);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <318> {
-  constexpr static const char* name = "chsAK8Jets/nef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.nef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <319> {
-  constexpr static const char* name = "chsAK8Jets/htt_mass";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.htt_mass);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <320> {
-  constexpr static const char* name = "chsAK8Jets/ptCorrDown";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.ptCorrDown);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <321> {
-  constexpr static const char* name = "chsAK8Jets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <322> {
-  constexpr static const char* name = "chsAK8Jets/tau2";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.tau2);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <323> {
-  constexpr static const char* name = "chsAK8Jets/tau3";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.tau3);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <324> {
-  constexpr static const char* name = "chsAK8Jets/puid";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.puid);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <325> {
-  constexpr static const char* name = "chsAK8Jets/tau1";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.tau1);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <326> {
-  constexpr static const char* name = "chsAK8Jets/mSD";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.mSD);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <327> {
-  constexpr static const char* name = "chsAK8Jets/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <328> {
-  constexpr static const char* name = "chsAK8Jets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <329> {
-  constexpr static const char* name = "chsAK8Jets/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <330> {
-  constexpr static const char* name = "chsAK8Jets/rawPt";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.rawPt);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <331> {
-  constexpr static const char* name = "chsAK8Jets/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <332> {
-  constexpr static const char* name = "chsAK8Jets/double_sub";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.double_sub);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <333> {
-  constexpr static const char* name = "chsAK8Jets/loose";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.loose);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <334> {
+struct plotter <231> {
   constexpr static const char* name = "chsAK8Jets/ptSmear";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4590,13 +3152,13 @@ struct plotter <334> {
 
 
 template <>
-struct plotter <335> {
-  constexpr static const char* name = "chsAK8Jets/deepCMVAc";
+struct plotter <232> {
+  constexpr static const char* name = "chsAK8Jets/htt_frec";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCMVAc);
+      output.push_back(i.htt_frec);
 
     return output;
   }
@@ -4604,7 +3166,245 @@ struct plotter <335> {
 
 
 template <>
-struct plotter <336> {
+struct plotter <233> {
+  constexpr static const char* name = "chsAK8Jets/chf";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.chf);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <234> {
+  constexpr static const char* name = "chsAK8Jets/area";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.area);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <235> {
+  constexpr static const char* name = "chsAK8Jets/htt_mass";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.htt_mass);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <236> {
+  constexpr static const char* name = "chsAK8Jets/ptCorrDown";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.ptCorrDown);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <237> {
+  constexpr static const char* name = "chsAK8Jets/pz";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.pz());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <238> {
+  constexpr static const char* name = "chsAK8Jets/tau2";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.tau2);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <239> {
+  constexpr static const char* name = "chsAK8Jets/tight";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.tight);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <240> {
+  constexpr static const char* name = "chsAK8Jets/puid";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.puid);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <241> {
+  constexpr static const char* name = "chsAK8Jets/tau1";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.tau1);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <242> {
+  constexpr static const char* name = "chsAK8Jets/mSD";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.mSD);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <243> {
+  constexpr static const char* name = "chsAK8Jets/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <244> {
+  constexpr static const char* name = "chsAK8Jets/p";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.p());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <245> {
+  constexpr static const char* name = "chsAK8Jets/rawPt";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.rawPt);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <246> {
+  constexpr static const char* name = "chsAK8Jets/eta";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.eta());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <247> {
+  constexpr static const char* name = "chsAK8Jets/double_sub";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.double_sub);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <248> {
+  constexpr static const char* name = "chsAK8Jets/loose";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.loose);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <249> {
+  constexpr static const char* name = "chsAK8Jets/tau3";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Jets)
+      output.push_back(i.tau3);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <250> {
   constexpr static const char* name = "chsAK8Jets/qgl";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4618,7 +3418,7 @@ struct plotter <336> {
 
 
 template <>
-struct plotter <337> {
+struct plotter <251> {
   constexpr static const char* name = "chsAK8Jets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4632,7 +3432,7 @@ struct plotter <337> {
 
 
 template <>
-struct plotter <338> {
+struct plotter <252> {
   constexpr static const char* name = "chsAK8Jets/monojet";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4646,7 +3446,7 @@ struct plotter <338> {
 
 
 template <>
-struct plotter <339> {
+struct plotter <253> {
   constexpr static const char* name = "chsAK8Jets/ptSmearDown";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4660,7 +3460,7 @@ struct plotter <339> {
 
 
 template <>
-struct plotter <340> {
+struct plotter <254> {
   constexpr static const char* name = "chsAK8Jets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4674,7 +3474,7 @@ struct plotter <340> {
 
 
 template <>
-struct plotter <341> {
+struct plotter <255> {
   constexpr static const char* name = "chsAK8Jets/mPruned";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4688,7 +3488,7 @@ struct plotter <341> {
 
 
 template <>
-struct plotter <342> {
+struct plotter <256> {
   constexpr static const char* name = "chsAK8Jets/tau1SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4702,7 +3502,7 @@ struct plotter <342> {
 
 
 template <>
-struct plotter <343> {
+struct plotter <257> {
   constexpr static const char* name = "chsAK8Jets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4716,7 +3516,7 @@ struct plotter <343> {
 
 
 template <>
-struct plotter <344> {
+struct plotter <258> {
   constexpr static const char* name = "chsAK8Jets/csv";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4730,35 +3530,7 @@ struct plotter <344> {
 
 
 template <>
-struct plotter <345> {
-  constexpr static const char* name = "chsAK8Jets/deepCSVb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCSVb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <346> {
-  constexpr static const char* name = "chsAK8Jets/deepCSVc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCSVc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <347> {
+struct plotter <259> {
   constexpr static const char* name = "chsAK8Jets/tau3SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4772,7 +3544,7 @@ struct plotter <347> {
 
 
 template <>
-struct plotter <348> {
+struct plotter <260> {
   constexpr static const char* name = "chsAK8Jets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4786,13 +3558,13 @@ struct plotter <348> {
 
 
 template <>
-struct plotter <349> {
-  constexpr static const char* name = "chsAK8Jets/deepCSVcc";
+struct plotter <261> {
+  constexpr static const char* name = "chsAK8Jets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsAK8Jets)
-      output.push_back(i.deepCSVcc);
+      output.push_back(i.phi());
 
     return output;
   }
@@ -4800,7 +3572,7 @@ struct plotter <349> {
 
 
 template <>
-struct plotter <350> {
+struct plotter <262> {
   constexpr static const char* name = "chsAK8Jets/tau2SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4814,7 +3586,7 @@ struct plotter <350> {
 
 
 template <>
-struct plotter <351> {
+struct plotter <263> {
   constexpr static const char* name = "chsAK8Jets/ptSmearUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -4828,7 +3600,7 @@ struct plotter <351> {
 
 
 template <>
-struct plotter <352> {
+struct plotter <264> {
   constexpr static const char* name = "chsAK8Subjets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.chsAK8Subjets.size())};
@@ -4838,245 +3610,7 @@ struct plotter <352> {
 
 
 template <>
-struct plotter <353> {
-  constexpr static const char* name = "chsAK8Subjets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <354> {
-  constexpr static const char* name = "chsAK8Subjets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <355> {
-  constexpr static const char* name = "chsAK8Subjets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <356> {
-  constexpr static const char* name = "chsAK8Subjets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <357> {
-  constexpr static const char* name = "chsAK8Subjets/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <358> {
-  constexpr static const char* name = "chsAK8Subjets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <359> {
-  constexpr static const char* name = "chsAK8Subjets/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <360> {
-  constexpr static const char* name = "chsAK8Subjets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <361> {
-  constexpr static const char* name = "chsAK8Subjets/deepCMVAc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCMVAc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <362> {
-  constexpr static const char* name = "chsAK8Subjets/qgl";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.qgl);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <363> {
-  constexpr static const char* name = "chsAK8Subjets/csv";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.csv);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <364> {
-  constexpr static const char* name = "chsAK8Subjets/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <365> {
-  constexpr static const char* name = "chsAK8Subjets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <366> {
-  constexpr static const char* name = "chsAK8Subjets/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <367> {
-  constexpr static const char* name = "chsAK8Subjets/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <368> {
-  constexpr static const char* name = "chsAK8Subjets/py";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.py());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <369> {
-  constexpr static const char* name = "chsAK8Subjets/px";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.px());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <370> {
+struct plotter <265> {
   constexpr static const char* name = "chsAK8Subjets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5090,13 +3624,13 @@ struct plotter <370> {
 
 
 template <>
-struct plotter <371> {
-  constexpr static const char* name = "chsAK8Subjets/deepCSVb";
+struct plotter <266> {
+  constexpr static const char* name = "chsAK8Subjets/p";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCSVb);
+      output.push_back(i.p());
 
     return output;
   }
@@ -5104,13 +3638,13 @@ struct plotter <371> {
 
 
 template <>
-struct plotter <372> {
-  constexpr static const char* name = "chsAK8Subjets/deepCSVc";
+struct plotter <267> {
+  constexpr static const char* name = "chsAK8Subjets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCSVc);
+      output.push_back(i.eta());
 
     return output;
   }
@@ -5118,7 +3652,7 @@ struct plotter <372> {
 
 
 template <>
-struct plotter <373> {
+struct plotter <268> {
   constexpr static const char* name = "chsAK8Subjets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5132,13 +3666,13 @@ struct plotter <373> {
 
 
 template <>
-struct plotter <374> {
-  constexpr static const char* name = "chsAK8Subjets/deepCSVcc";
+struct plotter <269> {
+  constexpr static const char* name = "chsAK8Subjets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsAK8Subjets)
-      output.push_back(i.deepCSVcc);
+      output.push_back(i.phi());
 
     return output;
   }
@@ -5146,7 +3680,91 @@ struct plotter <374> {
 
 
 template <>
-struct plotter <375> {
+struct plotter <270> {
+  constexpr static const char* name = "chsAK8Subjets/pz";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Subjets)
+      output.push_back(i.pz());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <271> {
+  constexpr static const char* name = "chsAK8Subjets/qgl";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Subjets)
+      output.push_back(i.qgl);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <272> {
+  constexpr static const char* name = "chsAK8Subjets/py";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Subjets)
+      output.push_back(i.py());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <273> {
+  constexpr static const char* name = "chsAK8Subjets/csv";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Subjets)
+      output.push_back(i.csv);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <274> {
+  constexpr static const char* name = "chsAK8Subjets/px";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Subjets)
+      output.push_back(i.px());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <275> {
+  constexpr static const char* name = "chsAK8Subjets/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsAK8Subjets)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <276> {
   constexpr static const char* name = "chsCA15Jets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.chsCA15Jets.size())};
@@ -5156,7 +3774,7 @@ struct plotter <375> {
 
 
 template <>
-struct plotter <376> {
+struct plotter <277> {
   constexpr static const char* name = "chsCA15Jets/subjets_size";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5170,21 +3788,7 @@ struct plotter <376> {
 
 
 template <>
-struct plotter <377> {
-  constexpr static const char* name = "chsCA15Jets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <378> {
+struct plotter <278> {
   constexpr static const char* name = "chsCA15Jets/nhf";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5198,7 +3802,7 @@ struct plotter <378> {
 
 
 template <>
-struct plotter <379> {
+struct plotter <279> {
   constexpr static const char* name = "chsCA15Jets/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5212,385 +3816,7 @@ struct plotter <379> {
 
 
 template <>
-struct plotter <380> {
-  constexpr static const char* name = "chsCA15Jets/cef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.cef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <381> {
-  constexpr static const char* name = "chsCA15Jets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <382> {
-  constexpr static const char* name = "chsCA15Jets/tight";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.tight);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <383> {
-  constexpr static const char* name = "chsCA15Jets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <384> {
-  constexpr static const char* name = "chsCA15Jets/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <385> {
-  constexpr static const char* name = "chsCA15Jets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <386> {
-  constexpr static const char* name = "chsCA15Jets/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <387> {
-  constexpr static const char* name = "chsCA15Jets/htt_frec";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.htt_frec);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <388> {
-  constexpr static const char* name = "chsCA15Jets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <389> {
-  constexpr static const char* name = "chsCA15Jets/chf";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.chf);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <390> {
-  constexpr static const char* name = "chsCA15Jets/area";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.area);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <391> {
-  constexpr static const char* name = "chsCA15Jets/nef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.nef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <392> {
-  constexpr static const char* name = "chsCA15Jets/htt_mass";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.htt_mass);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <393> {
-  constexpr static const char* name = "chsCA15Jets/ptCorrDown";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.ptCorrDown);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <394> {
-  constexpr static const char* name = "chsCA15Jets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <395> {
-  constexpr static const char* name = "chsCA15Jets/tau2";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.tau2);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <396> {
-  constexpr static const char* name = "chsCA15Jets/tau3";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.tau3);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <397> {
-  constexpr static const char* name = "chsCA15Jets/puid";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.puid);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <398> {
-  constexpr static const char* name = "chsCA15Jets/tau1";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.tau1);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <399> {
-  constexpr static const char* name = "chsCA15Jets/mSD";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.mSD);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <400> {
-  constexpr static const char* name = "chsCA15Jets/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <401> {
-  constexpr static const char* name = "chsCA15Jets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <402> {
-  constexpr static const char* name = "chsCA15Jets/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <403> {
-  constexpr static const char* name = "chsCA15Jets/rawPt";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.rawPt);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <404> {
-  constexpr static const char* name = "chsCA15Jets/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <405> {
-  constexpr static const char* name = "chsCA15Jets/double_sub";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.double_sub);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <406> {
-  constexpr static const char* name = "chsCA15Jets/loose";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.loose);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <407> {
+struct plotter <280> {
   constexpr static const char* name = "chsCA15Jets/ptSmear";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5604,13 +3830,13 @@ struct plotter <407> {
 
 
 template <>
-struct plotter <408> {
-  constexpr static const char* name = "chsCA15Jets/deepCMVAc";
+struct plotter <281> {
+  constexpr static const char* name = "chsCA15Jets/htt_frec";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCMVAc);
+      output.push_back(i.htt_frec);
 
     return output;
   }
@@ -5618,7 +3844,245 @@ struct plotter <408> {
 
 
 template <>
-struct plotter <409> {
+struct plotter <282> {
+  constexpr static const char* name = "chsCA15Jets/chf";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.chf);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <283> {
+  constexpr static const char* name = "chsCA15Jets/area";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.area);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <284> {
+  constexpr static const char* name = "chsCA15Jets/htt_mass";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.htt_mass);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <285> {
+  constexpr static const char* name = "chsCA15Jets/ptCorrDown";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.ptCorrDown);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <286> {
+  constexpr static const char* name = "chsCA15Jets/pz";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.pz());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <287> {
+  constexpr static const char* name = "chsCA15Jets/tau2";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.tau2);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <288> {
+  constexpr static const char* name = "chsCA15Jets/tight";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.tight);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <289> {
+  constexpr static const char* name = "chsCA15Jets/puid";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.puid);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <290> {
+  constexpr static const char* name = "chsCA15Jets/tau1";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.tau1);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <291> {
+  constexpr static const char* name = "chsCA15Jets/mSD";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.mSD);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <292> {
+  constexpr static const char* name = "chsCA15Jets/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <293> {
+  constexpr static const char* name = "chsCA15Jets/p";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.p());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <294> {
+  constexpr static const char* name = "chsCA15Jets/rawPt";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.rawPt);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <295> {
+  constexpr static const char* name = "chsCA15Jets/eta";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.eta());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <296> {
+  constexpr static const char* name = "chsCA15Jets/double_sub";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.double_sub);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <297> {
+  constexpr static const char* name = "chsCA15Jets/loose";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.loose);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <298> {
+  constexpr static const char* name = "chsCA15Jets/tau3";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Jets)
+      output.push_back(i.tau3);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <299> {
   constexpr static const char* name = "chsCA15Jets/qgl";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5632,7 +4096,7 @@ struct plotter <409> {
 
 
 template <>
-struct plotter <410> {
+struct plotter <300> {
   constexpr static const char* name = "chsCA15Jets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5646,7 +4110,7 @@ struct plotter <410> {
 
 
 template <>
-struct plotter <411> {
+struct plotter <301> {
   constexpr static const char* name = "chsCA15Jets/monojet";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5660,7 +4124,7 @@ struct plotter <411> {
 
 
 template <>
-struct plotter <412> {
+struct plotter <302> {
   constexpr static const char* name = "chsCA15Jets/ptSmearDown";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5674,7 +4138,7 @@ struct plotter <412> {
 
 
 template <>
-struct plotter <413> {
+struct plotter <303> {
   constexpr static const char* name = "chsCA15Jets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5688,7 +4152,7 @@ struct plotter <413> {
 
 
 template <>
-struct plotter <414> {
+struct plotter <304> {
   constexpr static const char* name = "chsCA15Jets/mPruned";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5702,7 +4166,7 @@ struct plotter <414> {
 
 
 template <>
-struct plotter <415> {
+struct plotter <305> {
   constexpr static const char* name = "chsCA15Jets/tau1SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5716,7 +4180,7 @@ struct plotter <415> {
 
 
 template <>
-struct plotter <416> {
+struct plotter <306> {
   constexpr static const char* name = "chsCA15Jets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5730,7 +4194,7 @@ struct plotter <416> {
 
 
 template <>
-struct plotter <417> {
+struct plotter <307> {
   constexpr static const char* name = "chsCA15Jets/csv";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5744,35 +4208,7 @@ struct plotter <417> {
 
 
 template <>
-struct plotter <418> {
-  constexpr static const char* name = "chsCA15Jets/deepCSVb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCSVb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <419> {
-  constexpr static const char* name = "chsCA15Jets/deepCSVc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCSVc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <420> {
+struct plotter <308> {
   constexpr static const char* name = "chsCA15Jets/tau3SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5786,7 +4222,7 @@ struct plotter <420> {
 
 
 template <>
-struct plotter <421> {
+struct plotter <309> {
   constexpr static const char* name = "chsCA15Jets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5800,13 +4236,13 @@ struct plotter <421> {
 
 
 template <>
-struct plotter <422> {
-  constexpr static const char* name = "chsCA15Jets/deepCSVcc";
+struct plotter <310> {
+  constexpr static const char* name = "chsCA15Jets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsCA15Jets)
-      output.push_back(i.deepCSVcc);
+      output.push_back(i.phi());
 
     return output;
   }
@@ -5814,7 +4250,7 @@ struct plotter <422> {
 
 
 template <>
-struct plotter <423> {
+struct plotter <311> {
   constexpr static const char* name = "chsCA15Jets/tau2SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5828,7 +4264,7 @@ struct plotter <423> {
 
 
 template <>
-struct plotter <424> {
+struct plotter <312> {
   constexpr static const char* name = "chsCA15Jets/ptSmearUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -5842,7 +4278,7 @@ struct plotter <424> {
 
 
 template <>
-struct plotter <425> {
+struct plotter <313> {
   constexpr static const char* name = "chsCA15Subjets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.chsCA15Subjets.size())};
@@ -5852,245 +4288,7 @@ struct plotter <425> {
 
 
 template <>
-struct plotter <426> {
-  constexpr static const char* name = "chsCA15Subjets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <427> {
-  constexpr static const char* name = "chsCA15Subjets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <428> {
-  constexpr static const char* name = "chsCA15Subjets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <429> {
-  constexpr static const char* name = "chsCA15Subjets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <430> {
-  constexpr static const char* name = "chsCA15Subjets/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <431> {
-  constexpr static const char* name = "chsCA15Subjets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <432> {
-  constexpr static const char* name = "chsCA15Subjets/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <433> {
-  constexpr static const char* name = "chsCA15Subjets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <434> {
-  constexpr static const char* name = "chsCA15Subjets/deepCMVAc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCMVAc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <435> {
-  constexpr static const char* name = "chsCA15Subjets/qgl";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.qgl);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <436> {
-  constexpr static const char* name = "chsCA15Subjets/csv";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.csv);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <437> {
-  constexpr static const char* name = "chsCA15Subjets/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <438> {
-  constexpr static const char* name = "chsCA15Subjets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <439> {
-  constexpr static const char* name = "chsCA15Subjets/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <440> {
-  constexpr static const char* name = "chsCA15Subjets/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <441> {
-  constexpr static const char* name = "chsCA15Subjets/py";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.py());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <442> {
-  constexpr static const char* name = "chsCA15Subjets/px";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.px());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <443> {
+struct plotter <314> {
   constexpr static const char* name = "chsCA15Subjets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6104,13 +4302,13 @@ struct plotter <443> {
 
 
 template <>
-struct plotter <444> {
-  constexpr static const char* name = "chsCA15Subjets/deepCSVb";
+struct plotter <315> {
+  constexpr static const char* name = "chsCA15Subjets/p";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCSVb);
+      output.push_back(i.p());
 
     return output;
   }
@@ -6118,13 +4316,13 @@ struct plotter <444> {
 
 
 template <>
-struct plotter <445> {
-  constexpr static const char* name = "chsCA15Subjets/deepCSVc";
+struct plotter <316> {
+  constexpr static const char* name = "chsCA15Subjets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCSVc);
+      output.push_back(i.eta());
 
     return output;
   }
@@ -6132,7 +4330,7 @@ struct plotter <445> {
 
 
 template <>
-struct plotter <446> {
+struct plotter <317> {
   constexpr static const char* name = "chsCA15Subjets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6146,13 +4344,13 @@ struct plotter <446> {
 
 
 template <>
-struct plotter <447> {
-  constexpr static const char* name = "chsCA15Subjets/deepCSVcc";
+struct plotter <318> {
+  constexpr static const char* name = "chsCA15Subjets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.chsCA15Subjets)
-      output.push_back(i.deepCSVcc);
+      output.push_back(i.phi());
 
     return output;
   }
@@ -6160,7 +4358,91 @@ struct plotter <447> {
 
 
 template <>
-struct plotter <448> {
+struct plotter <319> {
+  constexpr static const char* name = "chsCA15Subjets/pz";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Subjets)
+      output.push_back(i.pz());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <320> {
+  constexpr static const char* name = "chsCA15Subjets/qgl";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Subjets)
+      output.push_back(i.qgl);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <321> {
+  constexpr static const char* name = "chsCA15Subjets/py";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Subjets)
+      output.push_back(i.py());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <322> {
+  constexpr static const char* name = "chsCA15Subjets/csv";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Subjets)
+      output.push_back(i.csv);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <323> {
+  constexpr static const char* name = "chsCA15Subjets/px";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Subjets)
+      output.push_back(i.px());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <324> {
+  constexpr static const char* name = "chsCA15Subjets/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.chsCA15Subjets)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <325> {
   constexpr static const char* name = "puppiAK8Jets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiAK8Jets.size())};
@@ -6170,7 +4452,7 @@ struct plotter <448> {
 
 
 template <>
-struct plotter <449> {
+struct plotter <326> {
   constexpr static const char* name = "puppiAK8Jets/subjets_size";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6184,21 +4466,7 @@ struct plotter <449> {
 
 
 template <>
-struct plotter <450> {
-  constexpr static const char* name = "puppiAK8Jets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <451> {
+struct plotter <327> {
   constexpr static const char* name = "puppiAK8Jets/nhf";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6212,7 +4480,7 @@ struct plotter <451> {
 
 
 template <>
-struct plotter <452> {
+struct plotter <328> {
   constexpr static const char* name = "puppiAK8Jets/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6226,385 +4494,7 @@ struct plotter <452> {
 
 
 template <>
-struct plotter <453> {
-  constexpr static const char* name = "puppiAK8Jets/cef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.cef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <454> {
-  constexpr static const char* name = "puppiAK8Jets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <455> {
-  constexpr static const char* name = "puppiAK8Jets/tight";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.tight);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <456> {
-  constexpr static const char* name = "puppiAK8Jets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <457> {
-  constexpr static const char* name = "puppiAK8Jets/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <458> {
-  constexpr static const char* name = "puppiAK8Jets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <459> {
-  constexpr static const char* name = "puppiAK8Jets/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <460> {
-  constexpr static const char* name = "puppiAK8Jets/htt_frec";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.htt_frec);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <461> {
-  constexpr static const char* name = "puppiAK8Jets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <462> {
-  constexpr static const char* name = "puppiAK8Jets/chf";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.chf);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <463> {
-  constexpr static const char* name = "puppiAK8Jets/area";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.area);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <464> {
-  constexpr static const char* name = "puppiAK8Jets/nef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.nef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <465> {
-  constexpr static const char* name = "puppiAK8Jets/htt_mass";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.htt_mass);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <466> {
-  constexpr static const char* name = "puppiAK8Jets/ptCorrDown";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.ptCorrDown);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <467> {
-  constexpr static const char* name = "puppiAK8Jets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <468> {
-  constexpr static const char* name = "puppiAK8Jets/tau2";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.tau2);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <469> {
-  constexpr static const char* name = "puppiAK8Jets/tau3";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.tau3);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <470> {
-  constexpr static const char* name = "puppiAK8Jets/puid";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.puid);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <471> {
-  constexpr static const char* name = "puppiAK8Jets/tau1";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.tau1);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <472> {
-  constexpr static const char* name = "puppiAK8Jets/mSD";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.mSD);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <473> {
-  constexpr static const char* name = "puppiAK8Jets/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <474> {
-  constexpr static const char* name = "puppiAK8Jets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <475> {
-  constexpr static const char* name = "puppiAK8Jets/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <476> {
-  constexpr static const char* name = "puppiAK8Jets/rawPt";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.rawPt);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <477> {
-  constexpr static const char* name = "puppiAK8Jets/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <478> {
-  constexpr static const char* name = "puppiAK8Jets/double_sub";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.double_sub);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <479> {
-  constexpr static const char* name = "puppiAK8Jets/loose";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.loose);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <480> {
+struct plotter <329> {
   constexpr static const char* name = "puppiAK8Jets/ptSmear";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6618,13 +4508,13 @@ struct plotter <480> {
 
 
 template <>
-struct plotter <481> {
-  constexpr static const char* name = "puppiAK8Jets/deepCMVAc";
+struct plotter <330> {
+  constexpr static const char* name = "puppiAK8Jets/htt_frec";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCMVAc);
+      output.push_back(i.htt_frec);
 
     return output;
   }
@@ -6632,7 +4522,245 @@ struct plotter <481> {
 
 
 template <>
-struct plotter <482> {
+struct plotter <331> {
+  constexpr static const char* name = "puppiAK8Jets/chf";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.chf);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <332> {
+  constexpr static const char* name = "puppiAK8Jets/area";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.area);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <333> {
+  constexpr static const char* name = "puppiAK8Jets/htt_mass";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.htt_mass);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <334> {
+  constexpr static const char* name = "puppiAK8Jets/ptCorrDown";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.ptCorrDown);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <335> {
+  constexpr static const char* name = "puppiAK8Jets/pz";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.pz());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <336> {
+  constexpr static const char* name = "puppiAK8Jets/tau2";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.tau2);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <337> {
+  constexpr static const char* name = "puppiAK8Jets/tight";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.tight);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <338> {
+  constexpr static const char* name = "puppiAK8Jets/puid";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.puid);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <339> {
+  constexpr static const char* name = "puppiAK8Jets/tau1";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.tau1);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <340> {
+  constexpr static const char* name = "puppiAK8Jets/mSD";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.mSD);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <341> {
+  constexpr static const char* name = "puppiAK8Jets/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <342> {
+  constexpr static const char* name = "puppiAK8Jets/p";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.p());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <343> {
+  constexpr static const char* name = "puppiAK8Jets/rawPt";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.rawPt);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <344> {
+  constexpr static const char* name = "puppiAK8Jets/eta";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.eta());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <345> {
+  constexpr static const char* name = "puppiAK8Jets/double_sub";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.double_sub);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <346> {
+  constexpr static const char* name = "puppiAK8Jets/loose";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.loose);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <347> {
+  constexpr static const char* name = "puppiAK8Jets/tau3";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Jets)
+      output.push_back(i.tau3);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <348> {
   constexpr static const char* name = "puppiAK8Jets/qgl";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6646,7 +4774,7 @@ struct plotter <482> {
 
 
 template <>
-struct plotter <483> {
+struct plotter <349> {
   constexpr static const char* name = "puppiAK8Jets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6660,7 +4788,7 @@ struct plotter <483> {
 
 
 template <>
-struct plotter <484> {
+struct plotter <350> {
   constexpr static const char* name = "puppiAK8Jets/monojet";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6674,7 +4802,7 @@ struct plotter <484> {
 
 
 template <>
-struct plotter <485> {
+struct plotter <351> {
   constexpr static const char* name = "puppiAK8Jets/ptSmearDown";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6688,7 +4816,7 @@ struct plotter <485> {
 
 
 template <>
-struct plotter <486> {
+struct plotter <352> {
   constexpr static const char* name = "puppiAK8Jets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6702,7 +4830,7 @@ struct plotter <486> {
 
 
 template <>
-struct plotter <487> {
+struct plotter <353> {
   constexpr static const char* name = "puppiAK8Jets/mPruned";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6716,7 +4844,7 @@ struct plotter <487> {
 
 
 template <>
-struct plotter <488> {
+struct plotter <354> {
   constexpr static const char* name = "puppiAK8Jets/tau1SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6730,7 +4858,7 @@ struct plotter <488> {
 
 
 template <>
-struct plotter <489> {
+struct plotter <355> {
   constexpr static const char* name = "puppiAK8Jets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6744,7 +4872,7 @@ struct plotter <489> {
 
 
 template <>
-struct plotter <490> {
+struct plotter <356> {
   constexpr static const char* name = "puppiAK8Jets/csv";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6758,35 +4886,7 @@ struct plotter <490> {
 
 
 template <>
-struct plotter <491> {
-  constexpr static const char* name = "puppiAK8Jets/deepCSVb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCSVb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <492> {
-  constexpr static const char* name = "puppiAK8Jets/deepCSVc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCSVc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <493> {
+struct plotter <357> {
   constexpr static const char* name = "puppiAK8Jets/tau3SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6800,7 +4900,7 @@ struct plotter <493> {
 
 
 template <>
-struct plotter <494> {
+struct plotter <358> {
   constexpr static const char* name = "puppiAK8Jets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6814,13 +4914,13 @@ struct plotter <494> {
 
 
 template <>
-struct plotter <495> {
-  constexpr static const char* name = "puppiAK8Jets/deepCSVcc";
+struct plotter <359> {
+  constexpr static const char* name = "puppiAK8Jets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiAK8Jets)
-      output.push_back(i.deepCSVcc);
+      output.push_back(i.phi());
 
     return output;
   }
@@ -6828,7 +4928,7 @@ struct plotter <495> {
 
 
 template <>
-struct plotter <496> {
+struct plotter <360> {
   constexpr static const char* name = "puppiAK8Jets/tau2SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6842,7 +4942,7 @@ struct plotter <496> {
 
 
 template <>
-struct plotter <497> {
+struct plotter <361> {
   constexpr static const char* name = "puppiAK8Jets/ptSmearUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -6856,7 +4956,7 @@ struct plotter <497> {
 
 
 template <>
-struct plotter <498> {
+struct plotter <362> {
   constexpr static const char* name = "puppiAK8Subjets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiAK8Subjets.size())};
@@ -6866,245 +4966,7 @@ struct plotter <498> {
 
 
 template <>
-struct plotter <499> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <500> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <501> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <502> {
-  constexpr static const char* name = "puppiAK8Subjets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <503> {
-  constexpr static const char* name = "puppiAK8Subjets/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <504> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <505> {
-  constexpr static const char* name = "puppiAK8Subjets/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <506> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <507> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCMVAc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCMVAc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <508> {
-  constexpr static const char* name = "puppiAK8Subjets/qgl";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.qgl);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <509> {
-  constexpr static const char* name = "puppiAK8Subjets/csv";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.csv);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <510> {
-  constexpr static const char* name = "puppiAK8Subjets/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <511> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <512> {
-  constexpr static const char* name = "puppiAK8Subjets/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <513> {
-  constexpr static const char* name = "puppiAK8Subjets/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <514> {
-  constexpr static const char* name = "puppiAK8Subjets/py";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.py());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <515> {
-  constexpr static const char* name = "puppiAK8Subjets/px";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.px());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <516> {
+struct plotter <363> {
   constexpr static const char* name = "puppiAK8Subjets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7118,13 +4980,13 @@ struct plotter <516> {
 
 
 template <>
-struct plotter <517> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCSVb";
+struct plotter <364> {
+  constexpr static const char* name = "puppiAK8Subjets/p";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCSVb);
+      output.push_back(i.p());
 
     return output;
   }
@@ -7132,13 +4994,13 @@ struct plotter <517> {
 
 
 template <>
-struct plotter <518> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCSVc";
+struct plotter <365> {
+  constexpr static const char* name = "puppiAK8Subjets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCSVc);
+      output.push_back(i.eta());
 
     return output;
   }
@@ -7146,7 +5008,7 @@ struct plotter <518> {
 
 
 template <>
-struct plotter <519> {
+struct plotter <366> {
   constexpr static const char* name = "puppiAK8Subjets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7160,13 +5022,13 @@ struct plotter <519> {
 
 
 template <>
-struct plotter <520> {
-  constexpr static const char* name = "puppiAK8Subjets/deepCSVcc";
+struct plotter <367> {
+  constexpr static const char* name = "puppiAK8Subjets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiAK8Subjets)
-      output.push_back(i.deepCSVcc);
+      output.push_back(i.phi());
 
     return output;
   }
@@ -7174,7 +5036,91 @@ struct plotter <520> {
 
 
 template <>
-struct plotter <521> {
+struct plotter <368> {
+  constexpr static const char* name = "puppiAK8Subjets/pz";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Subjets)
+      output.push_back(i.pz());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <369> {
+  constexpr static const char* name = "puppiAK8Subjets/qgl";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Subjets)
+      output.push_back(i.qgl);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <370> {
+  constexpr static const char* name = "puppiAK8Subjets/py";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Subjets)
+      output.push_back(i.py());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <371> {
+  constexpr static const char* name = "puppiAK8Subjets/csv";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Subjets)
+      output.push_back(i.csv);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <372> {
+  constexpr static const char* name = "puppiAK8Subjets/px";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Subjets)
+      output.push_back(i.px());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <373> {
+  constexpr static const char* name = "puppiAK8Subjets/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiAK8Subjets)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <374> {
   constexpr static const char* name = "puppiCA15Jets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiCA15Jets.size())};
@@ -7184,7 +5130,7 @@ struct plotter <521> {
 
 
 template <>
-struct plotter <522> {
+struct plotter <375> {
   constexpr static const char* name = "puppiCA15Jets/subjets_size";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7198,21 +5144,7 @@ struct plotter <522> {
 
 
 template <>
-struct plotter <523> {
-  constexpr static const char* name = "puppiCA15Jets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <524> {
+struct plotter <376> {
   constexpr static const char* name = "puppiCA15Jets/nhf";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7226,7 +5158,7 @@ struct plotter <524> {
 
 
 template <>
-struct plotter <525> {
+struct plotter <377> {
   constexpr static const char* name = "puppiCA15Jets/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7240,385 +5172,7 @@ struct plotter <525> {
 
 
 template <>
-struct plotter <526> {
-  constexpr static const char* name = "puppiCA15Jets/cef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.cef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <527> {
-  constexpr static const char* name = "puppiCA15Jets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <528> {
-  constexpr static const char* name = "puppiCA15Jets/tight";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.tight);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <529> {
-  constexpr static const char* name = "puppiCA15Jets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <530> {
-  constexpr static const char* name = "puppiCA15Jets/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <531> {
-  constexpr static const char* name = "puppiCA15Jets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <532> {
-  constexpr static const char* name = "puppiCA15Jets/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <533> {
-  constexpr static const char* name = "puppiCA15Jets/htt_frec";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.htt_frec);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <534> {
-  constexpr static const char* name = "puppiCA15Jets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <535> {
-  constexpr static const char* name = "puppiCA15Jets/chf";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.chf);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <536> {
-  constexpr static const char* name = "puppiCA15Jets/area";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.area);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <537> {
-  constexpr static const char* name = "puppiCA15Jets/nef";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.nef);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <538> {
-  constexpr static const char* name = "puppiCA15Jets/htt_mass";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.htt_mass);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <539> {
-  constexpr static const char* name = "puppiCA15Jets/ptCorrDown";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.ptCorrDown);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <540> {
-  constexpr static const char* name = "puppiCA15Jets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <541> {
-  constexpr static const char* name = "puppiCA15Jets/tau2";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.tau2);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <542> {
-  constexpr static const char* name = "puppiCA15Jets/tau3";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.tau3);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <543> {
-  constexpr static const char* name = "puppiCA15Jets/puid";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.puid);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <544> {
-  constexpr static const char* name = "puppiCA15Jets/tau1";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.tau1);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <545> {
-  constexpr static const char* name = "puppiCA15Jets/mSD";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.mSD);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <546> {
-  constexpr static const char* name = "puppiCA15Jets/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <547> {
-  constexpr static const char* name = "puppiCA15Jets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <548> {
-  constexpr static const char* name = "puppiCA15Jets/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <549> {
-  constexpr static const char* name = "puppiCA15Jets/rawPt";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.rawPt);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <550> {
-  constexpr static const char* name = "puppiCA15Jets/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <551> {
-  constexpr static const char* name = "puppiCA15Jets/double_sub";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.double_sub);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <552> {
-  constexpr static const char* name = "puppiCA15Jets/loose";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.loose);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <553> {
+struct plotter <378> {
   constexpr static const char* name = "puppiCA15Jets/ptSmear";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7632,13 +5186,13 @@ struct plotter <553> {
 
 
 template <>
-struct plotter <554> {
-  constexpr static const char* name = "puppiCA15Jets/deepCMVAc";
+struct plotter <379> {
+  constexpr static const char* name = "puppiCA15Jets/htt_frec";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCMVAc);
+      output.push_back(i.htt_frec);
 
     return output;
   }
@@ -7646,7 +5200,245 @@ struct plotter <554> {
 
 
 template <>
-struct plotter <555> {
+struct plotter <380> {
+  constexpr static const char* name = "puppiCA15Jets/chf";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.chf);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <381> {
+  constexpr static const char* name = "puppiCA15Jets/area";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.area);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <382> {
+  constexpr static const char* name = "puppiCA15Jets/htt_mass";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.htt_mass);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <383> {
+  constexpr static const char* name = "puppiCA15Jets/ptCorrDown";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.ptCorrDown);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <384> {
+  constexpr static const char* name = "puppiCA15Jets/pz";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.pz());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <385> {
+  constexpr static const char* name = "puppiCA15Jets/tau2";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.tau2);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <386> {
+  constexpr static const char* name = "puppiCA15Jets/tight";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.tight);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <387> {
+  constexpr static const char* name = "puppiCA15Jets/puid";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.puid);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <388> {
+  constexpr static const char* name = "puppiCA15Jets/tau1";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.tau1);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <389> {
+  constexpr static const char* name = "puppiCA15Jets/mSD";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.mSD);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <390> {
+  constexpr static const char* name = "puppiCA15Jets/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <391> {
+  constexpr static const char* name = "puppiCA15Jets/p";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.p());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <392> {
+  constexpr static const char* name = "puppiCA15Jets/rawPt";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.rawPt);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <393> {
+  constexpr static const char* name = "puppiCA15Jets/eta";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.eta());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <394> {
+  constexpr static const char* name = "puppiCA15Jets/double_sub";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.double_sub);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <395> {
+  constexpr static const char* name = "puppiCA15Jets/loose";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.loose);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <396> {
+  constexpr static const char* name = "puppiCA15Jets/tau3";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Jets)
+      output.push_back(i.tau3);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <397> {
   constexpr static const char* name = "puppiCA15Jets/qgl";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7660,7 +5452,7 @@ struct plotter <555> {
 
 
 template <>
-struct plotter <556> {
+struct plotter <398> {
   constexpr static const char* name = "puppiCA15Jets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7674,7 +5466,7 @@ struct plotter <556> {
 
 
 template <>
-struct plotter <557> {
+struct plotter <399> {
   constexpr static const char* name = "puppiCA15Jets/monojet";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7688,7 +5480,7 @@ struct plotter <557> {
 
 
 template <>
-struct plotter <558> {
+struct plotter <400> {
   constexpr static const char* name = "puppiCA15Jets/ptSmearDown";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7702,7 +5494,7 @@ struct plotter <558> {
 
 
 template <>
-struct plotter <559> {
+struct plotter <401> {
   constexpr static const char* name = "puppiCA15Jets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7716,7 +5508,7 @@ struct plotter <559> {
 
 
 template <>
-struct plotter <560> {
+struct plotter <402> {
   constexpr static const char* name = "puppiCA15Jets/mPruned";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7730,7 +5522,7 @@ struct plotter <560> {
 
 
 template <>
-struct plotter <561> {
+struct plotter <403> {
   constexpr static const char* name = "puppiCA15Jets/tau1SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7744,7 +5536,7 @@ struct plotter <561> {
 
 
 template <>
-struct plotter <562> {
+struct plotter <404> {
   constexpr static const char* name = "puppiCA15Jets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7758,7 +5550,7 @@ struct plotter <562> {
 
 
 template <>
-struct plotter <563> {
+struct plotter <405> {
   constexpr static const char* name = "puppiCA15Jets/csv";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7772,35 +5564,7 @@ struct plotter <563> {
 
 
 template <>
-struct plotter <564> {
-  constexpr static const char* name = "puppiCA15Jets/deepCSVb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCSVb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <565> {
-  constexpr static const char* name = "puppiCA15Jets/deepCSVc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCSVc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <566> {
+struct plotter <406> {
   constexpr static const char* name = "puppiCA15Jets/tau3SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7814,7 +5578,7 @@ struct plotter <566> {
 
 
 template <>
-struct plotter <567> {
+struct plotter <407> {
   constexpr static const char* name = "puppiCA15Jets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7828,13 +5592,13 @@ struct plotter <567> {
 
 
 template <>
-struct plotter <568> {
-  constexpr static const char* name = "puppiCA15Jets/deepCSVcc";
+struct plotter <408> {
+  constexpr static const char* name = "puppiCA15Jets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiCA15Jets)
-      output.push_back(i.deepCSVcc);
+      output.push_back(i.phi());
 
     return output;
   }
@@ -7842,7 +5606,7 @@ struct plotter <568> {
 
 
 template <>
-struct plotter <569> {
+struct plotter <409> {
   constexpr static const char* name = "puppiCA15Jets/tau2SD";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7856,7 +5620,7 @@ struct plotter <569> {
 
 
 template <>
-struct plotter <570> {
+struct plotter <410> {
   constexpr static const char* name = "puppiCA15Jets/ptSmearUp";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -7870,7 +5634,7 @@ struct plotter <570> {
 
 
 template <>
-struct plotter <571> {
+struct plotter <411> {
   constexpr static const char* name = "puppiCA15Subjets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiCA15Subjets.size())};
@@ -7880,245 +5644,7 @@ struct plotter <571> {
 
 
 template <>
-struct plotter <572> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCMVAudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCMVAudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <573> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCMVAbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCMVAbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <574> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCSVudsg";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCSVudsg);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <575> {
-  constexpr static const char* name = "puppiCA15Subjets/cmva";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.cmva);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <576> {
-  constexpr static const char* name = "puppiCA15Subjets/phi";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.phi());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <577> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCSVbb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCSVbb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <578> {
-  constexpr static const char* name = "puppiCA15Subjets/pz";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.pz());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <579> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCMVAb";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCMVAb);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <580> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCMVAc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCMVAc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <581> {
-  constexpr static const char* name = "puppiCA15Subjets/qgl";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.qgl);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <582> {
-  constexpr static const char* name = "puppiCA15Subjets/csv";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.csv);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <583> {
-  constexpr static const char* name = "puppiCA15Subjets/e";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.e());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <584> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCMVAcc";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCMVAcc);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <585> {
-  constexpr static const char* name = "puppiCA15Subjets/p";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.p());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <586> {
-  constexpr static const char* name = "puppiCA15Subjets/eta";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.eta());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <587> {
-  constexpr static const char* name = "puppiCA15Subjets/py";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.py());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <588> {
-  constexpr static const char* name = "puppiCA15Subjets/px";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.px());
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <589> {
+struct plotter <412> {
   constexpr static const char* name = "puppiCA15Subjets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8132,13 +5658,13 @@ struct plotter <589> {
 
 
 template <>
-struct plotter <590> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCSVb";
+struct plotter <413> {
+  constexpr static const char* name = "puppiCA15Subjets/p";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCSVb);
+      output.push_back(i.p());
 
     return output;
   }
@@ -8146,13 +5672,13 @@ struct plotter <590> {
 
 
 template <>
-struct plotter <591> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCSVc";
+struct plotter <414> {
+  constexpr static const char* name = "puppiCA15Subjets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCSVc);
+      output.push_back(i.eta());
 
     return output;
   }
@@ -8160,7 +5686,7 @@ struct plotter <591> {
 
 
 template <>
-struct plotter <592> {
+struct plotter <415> {
   constexpr static const char* name = "puppiCA15Subjets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8174,13 +5700,13 @@ struct plotter <592> {
 
 
 template <>
-struct plotter <593> {
-  constexpr static const char* name = "puppiCA15Subjets/deepCSVcc";
+struct plotter <416> {
+  constexpr static const char* name = "puppiCA15Subjets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
     std::vector<float> output;
     for (auto& i : event.puppiCA15Subjets)
-      output.push_back(i.deepCSVcc);
+      output.push_back(i.phi());
 
     return output;
   }
@@ -8188,7 +5714,91 @@ struct plotter <593> {
 
 
 template <>
-struct plotter <594> {
+struct plotter <417> {
+  constexpr static const char* name = "puppiCA15Subjets/pz";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Subjets)
+      output.push_back(i.pz());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <418> {
+  constexpr static const char* name = "puppiCA15Subjets/qgl";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Subjets)
+      output.push_back(i.qgl);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <419> {
+  constexpr static const char* name = "puppiCA15Subjets/py";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Subjets)
+      output.push_back(i.py());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <420> {
+  constexpr static const char* name = "puppiCA15Subjets/csv";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Subjets)
+      output.push_back(i.csv);
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <421> {
+  constexpr static const char* name = "puppiCA15Subjets/px";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Subjets)
+      output.push_back(i.px());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <422> {
+  constexpr static const char* name = "puppiCA15Subjets/e";
+  std::vector<float> operator () (panda::Event& event) {
+
+    std::vector<float> output;
+    for (auto& i : event.puppiCA15Subjets)
+      output.push_back(i.e());
+
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <423> {
   constexpr static const char* name = "ak4GenJets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.ak4GenJets.size())};
@@ -8198,21 +5808,7 @@ struct plotter <594> {
 
 
 template <>
-struct plotter <595> {
-  constexpr static const char* name = "ak4GenJets/partonFlavor";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ak4GenJets)
-      output.push_back(i.partonFlavor);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <596> {
+struct plotter <424> {
   constexpr static const char* name = "ak4GenJets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8226,7 +5822,7 @@ struct plotter <596> {
 
 
 template <>
-struct plotter <597> {
+struct plotter <425> {
   constexpr static const char* name = "ak4GenJets/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8240,7 +5836,7 @@ struct plotter <597> {
 
 
 template <>
-struct plotter <598> {
+struct plotter <426> {
   constexpr static const char* name = "ak4GenJets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8254,7 +5850,7 @@ struct plotter <598> {
 
 
 template <>
-struct plotter <599> {
+struct plotter <427> {
   constexpr static const char* name = "ak4GenJets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8268,7 +5864,7 @@ struct plotter <599> {
 
 
 template <>
-struct plotter <600> {
+struct plotter <428> {
   constexpr static const char* name = "ak4GenJets/pdgid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8282,7 +5878,7 @@ struct plotter <600> {
 
 
 template <>
-struct plotter <601> {
+struct plotter <429> {
   constexpr static const char* name = "ak4GenJets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8296,7 +5892,7 @@ struct plotter <601> {
 
 
 template <>
-struct plotter <602> {
+struct plotter <430> {
   constexpr static const char* name = "ak4GenJets/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8310,7 +5906,7 @@ struct plotter <602> {
 
 
 template <>
-struct plotter <603> {
+struct plotter <431> {
   constexpr static const char* name = "ak4GenJets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8324,35 +5920,7 @@ struct plotter <603> {
 
 
 template <>
-struct plotter <604> {
-  constexpr static const char* name = "ak4GenJets/numB";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ak4GenJets)
-      output.push_back(i.numB);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <605> {
-  constexpr static const char* name = "ak4GenJets/numC";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ak4GenJets)
-      output.push_back(i.numC);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <606> {
+struct plotter <432> {
   constexpr static const char* name = "ak4GenJets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8366,7 +5934,7 @@ struct plotter <606> {
 
 
 template <>
-struct plotter <607> {
+struct plotter <433> {
   constexpr static const char* name = "ak4GenJets/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8380,7 +5948,7 @@ struct plotter <607> {
 
 
 template <>
-struct plotter <608> {
+struct plotter <434> {
   constexpr static const char* name = "ak8GenJets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.ak8GenJets.size())};
@@ -8390,21 +5958,7 @@ struct plotter <608> {
 
 
 template <>
-struct plotter <609> {
-  constexpr static const char* name = "ak8GenJets/partonFlavor";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ak8GenJets)
-      output.push_back(i.partonFlavor);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <610> {
+struct plotter <435> {
   constexpr static const char* name = "ak8GenJets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8418,7 +5972,7 @@ struct plotter <610> {
 
 
 template <>
-struct plotter <611> {
+struct plotter <436> {
   constexpr static const char* name = "ak8GenJets/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8432,7 +5986,7 @@ struct plotter <611> {
 
 
 template <>
-struct plotter <612> {
+struct plotter <437> {
   constexpr static const char* name = "ak8GenJets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8446,7 +6000,7 @@ struct plotter <612> {
 
 
 template <>
-struct plotter <613> {
+struct plotter <438> {
   constexpr static const char* name = "ak8GenJets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8460,7 +6014,7 @@ struct plotter <613> {
 
 
 template <>
-struct plotter <614> {
+struct plotter <439> {
   constexpr static const char* name = "ak8GenJets/pdgid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8474,7 +6028,7 @@ struct plotter <614> {
 
 
 template <>
-struct plotter <615> {
+struct plotter <440> {
   constexpr static const char* name = "ak8GenJets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8488,7 +6042,7 @@ struct plotter <615> {
 
 
 template <>
-struct plotter <616> {
+struct plotter <441> {
   constexpr static const char* name = "ak8GenJets/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8502,7 +6056,7 @@ struct plotter <616> {
 
 
 template <>
-struct plotter <617> {
+struct plotter <442> {
   constexpr static const char* name = "ak8GenJets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8516,35 +6070,7 @@ struct plotter <617> {
 
 
 template <>
-struct plotter <618> {
-  constexpr static const char* name = "ak8GenJets/numB";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ak8GenJets)
-      output.push_back(i.numB);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <619> {
-  constexpr static const char* name = "ak8GenJets/numC";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ak8GenJets)
-      output.push_back(i.numC);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <620> {
+struct plotter <443> {
   constexpr static const char* name = "ak8GenJets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8558,7 +6084,7 @@ struct plotter <620> {
 
 
 template <>
-struct plotter <621> {
+struct plotter <444> {
   constexpr static const char* name = "ak8GenJets/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8572,7 +6098,7 @@ struct plotter <621> {
 
 
 template <>
-struct plotter <622> {
+struct plotter <445> {
   constexpr static const char* name = "ca15GenJets/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.ca15GenJets.size())};
@@ -8582,21 +6108,7 @@ struct plotter <622> {
 
 
 template <>
-struct plotter <623> {
-  constexpr static const char* name = "ca15GenJets/partonFlavor";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ca15GenJets)
-      output.push_back(i.partonFlavor);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <624> {
+struct plotter <446> {
   constexpr static const char* name = "ca15GenJets/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8610,7 +6122,7 @@ struct plotter <624> {
 
 
 template <>
-struct plotter <625> {
+struct plotter <447> {
   constexpr static const char* name = "ca15GenJets/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8624,7 +6136,7 @@ struct plotter <625> {
 
 
 template <>
-struct plotter <626> {
+struct plotter <448> {
   constexpr static const char* name = "ca15GenJets/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8638,7 +6150,7 @@ struct plotter <626> {
 
 
 template <>
-struct plotter <627> {
+struct plotter <449> {
   constexpr static const char* name = "ca15GenJets/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8652,7 +6164,7 @@ struct plotter <627> {
 
 
 template <>
-struct plotter <628> {
+struct plotter <450> {
   constexpr static const char* name = "ca15GenJets/pdgid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8666,7 +6178,7 @@ struct plotter <628> {
 
 
 template <>
-struct plotter <629> {
+struct plotter <451> {
   constexpr static const char* name = "ca15GenJets/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8680,7 +6192,7 @@ struct plotter <629> {
 
 
 template <>
-struct plotter <630> {
+struct plotter <452> {
   constexpr static const char* name = "ca15GenJets/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8694,7 +6206,7 @@ struct plotter <630> {
 
 
 template <>
-struct plotter <631> {
+struct plotter <453> {
   constexpr static const char* name = "ca15GenJets/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8708,35 +6220,7 @@ struct plotter <631> {
 
 
 template <>
-struct plotter <632> {
-  constexpr static const char* name = "ca15GenJets/numB";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ca15GenJets)
-      output.push_back(i.numB);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <633> {
-  constexpr static const char* name = "ca15GenJets/numC";
-  std::vector<float> operator () (panda::Event& event) {
-
-    std::vector<float> output;
-    for (auto& i : event.ca15GenJets)
-      output.push_back(i.numC);
-
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <634> {
+struct plotter <454> {
   constexpr static const char* name = "ca15GenJets/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8750,7 +6234,7 @@ struct plotter <634> {
 
 
 template <>
-struct plotter <635> {
+struct plotter <455> {
   constexpr static const char* name = "ca15GenJets/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8764,7 +6248,7 @@ struct plotter <635> {
 
 
 template <>
-struct plotter <636> {
+struct plotter <456> {
   constexpr static const char* name = "genParticles/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.genParticles.size())};
@@ -8774,7 +6258,7 @@ struct plotter <636> {
 
 
 template <>
-struct plotter <637> {
+struct plotter <457> {
   constexpr static const char* name = "genParticles/parent_isValid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8788,7 +6272,7 @@ struct plotter <637> {
 
 
 template <>
-struct plotter <638> {
+struct plotter <458> {
   constexpr static const char* name = "genParticles/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8802,7 +6286,7 @@ struct plotter <638> {
 
 
 template <>
-struct plotter <639> {
+struct plotter <459> {
   constexpr static const char* name = "genParticles/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8816,7 +6300,7 @@ struct plotter <639> {
 
 
 template <>
-struct plotter <640> {
+struct plotter <460> {
   constexpr static const char* name = "genParticles/statusFlags";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8830,7 +6314,7 @@ struct plotter <640> {
 
 
 template <>
-struct plotter <641> {
+struct plotter <461> {
   constexpr static const char* name = "genParticles/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8844,7 +6328,7 @@ struct plotter <641> {
 
 
 template <>
-struct plotter <642> {
+struct plotter <462> {
   constexpr static const char* name = "genParticles/pdgid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8858,7 +6342,7 @@ struct plotter <642> {
 
 
 template <>
-struct plotter <643> {
+struct plotter <463> {
   constexpr static const char* name = "genParticles/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8872,7 +6356,7 @@ struct plotter <643> {
 
 
 template <>
-struct plotter <644> {
+struct plotter <464> {
   constexpr static const char* name = "genParticles/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8886,7 +6370,7 @@ struct plotter <644> {
 
 
 template <>
-struct plotter <645> {
+struct plotter <465> {
   constexpr static const char* name = "genParticles/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8900,7 +6384,7 @@ struct plotter <645> {
 
 
 template <>
-struct plotter <646> {
+struct plotter <466> {
   constexpr static const char* name = "genParticles/finalState";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8914,7 +6398,7 @@ struct plotter <646> {
 
 
 template <>
-struct plotter <647> {
+struct plotter <467> {
   constexpr static const char* name = "genParticles/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8928,7 +6412,7 @@ struct plotter <647> {
 
 
 template <>
-struct plotter <648> {
+struct plotter <468> {
   constexpr static const char* name = "genParticles/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8942,7 +6426,7 @@ struct plotter <648> {
 
 
 template <>
-struct plotter <649> {
+struct plotter <469> {
   constexpr static const char* name = "genParticles/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -8956,7 +6440,7 @@ struct plotter <649> {
 
 
 template <>
-struct plotter <650> {
+struct plotter <470> {
   constexpr static const char* name = "genVertex/y";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.genVertex.y)};
@@ -8966,7 +6450,7 @@ struct plotter <650> {
 
 
 template <>
-struct plotter <651> {
+struct plotter <471> {
   constexpr static const char* name = "genVertex/x";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.genVertex.x)};
@@ -8976,7 +6460,7 @@ struct plotter <651> {
 
 
 template <>
-struct plotter <652> {
+struct plotter <472> {
   constexpr static const char* name = "genVertex/z";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.genVertex.z)};
@@ -8986,7 +6470,7 @@ struct plotter <652> {
 
 
 template <>
-struct plotter <653> {
+struct plotter <473> {
   constexpr static const char* name = "partons/size";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.partons.size())};
@@ -8996,7 +6480,7 @@ struct plotter <653> {
 
 
 template <>
-struct plotter <654> {
+struct plotter <474> {
   constexpr static const char* name = "partons/pt";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9010,7 +6494,7 @@ struct plotter <654> {
 
 
 template <>
-struct plotter <655> {
+struct plotter <475> {
   constexpr static const char* name = "partons/p";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9024,7 +6508,7 @@ struct plotter <655> {
 
 
 template <>
-struct plotter <656> {
+struct plotter <476> {
   constexpr static const char* name = "partons/eta";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9038,7 +6522,7 @@ struct plotter <656> {
 
 
 template <>
-struct plotter <657> {
+struct plotter <477> {
   constexpr static const char* name = "partons/m";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9052,7 +6536,7 @@ struct plotter <657> {
 
 
 template <>
-struct plotter <658> {
+struct plotter <478> {
   constexpr static const char* name = "partons/pdgid";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9066,7 +6550,7 @@ struct plotter <658> {
 
 
 template <>
-struct plotter <659> {
+struct plotter <479> {
   constexpr static const char* name = "partons/phi";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9080,7 +6564,7 @@ struct plotter <659> {
 
 
 template <>
-struct plotter <660> {
+struct plotter <480> {
   constexpr static const char* name = "partons/pz";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9094,7 +6578,7 @@ struct plotter <660> {
 
 
 template <>
-struct plotter <661> {
+struct plotter <481> {
   constexpr static const char* name = "partons/py";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9108,7 +6592,7 @@ struct plotter <661> {
 
 
 template <>
-struct plotter <662> {
+struct plotter <482> {
   constexpr static const char* name = "partons/px";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9122,7 +6606,7 @@ struct plotter <662> {
 
 
 template <>
-struct plotter <663> {
+struct plotter <483> {
   constexpr static const char* name = "partons/e";
   std::vector<float> operator () (panda::Event& event) {
 
@@ -9136,7 +6620,7 @@ struct plotter <663> {
 
 
 template <>
-struct plotter <664> {
+struct plotter <484> {
   constexpr static const char* name = "pfMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.phi)};
@@ -9146,7 +6630,7 @@ struct plotter <664> {
 
 
 template <>
-struct plotter <665> {
+struct plotter <485> {
   constexpr static const char* name = "pfMet/phiUnclUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.phiUnclUp)};
@@ -9156,7 +6640,7 @@ struct plotter <665> {
 
 
 template <>
-struct plotter <666> {
+struct plotter <486> {
   constexpr static const char* name = "pfMet/sumETRaw";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.sumETRaw)};
@@ -9166,7 +6650,7 @@ struct plotter <666> {
 
 
 template <>
-struct plotter <667> {
+struct plotter <487> {
   constexpr static const char* name = "pfMet/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.ptCorrUp)};
@@ -9176,7 +6660,7 @@ struct plotter <667> {
 
 
 template <>
-struct plotter <668> {
+struct plotter <488> {
   constexpr static const char* name = "pfMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.pt)};
@@ -9186,7 +6670,7 @@ struct plotter <668> {
 
 
 template <>
-struct plotter <669> {
+struct plotter <489> {
   constexpr static const char* name = "pfMet/ptCorrDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.ptCorrDown)};
@@ -9196,7 +6680,7 @@ struct plotter <669> {
 
 
 template <>
-struct plotter <670> {
+struct plotter <490> {
   constexpr static const char* name = "pfMet/phiCorrUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.phiCorrUp)};
@@ -9206,7 +6690,7 @@ struct plotter <670> {
 
 
 template <>
-struct plotter <671> {
+struct plotter <491> {
   constexpr static const char* name = "pfMet/phiUnclDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.phiUnclDown)};
@@ -9216,7 +6700,7 @@ struct plotter <671> {
 
 
 template <>
-struct plotter <672> {
+struct plotter <492> {
   constexpr static const char* name = "pfMet/ptUnclDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.ptUnclDown)};
@@ -9226,7 +6710,7 @@ struct plotter <672> {
 
 
 template <>
-struct plotter <673> {
+struct plotter <493> {
   constexpr static const char* name = "pfMet/phiCorrDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.phiCorrDown)};
@@ -9236,7 +6720,7 @@ struct plotter <673> {
 
 
 template <>
-struct plotter <674> {
+struct plotter <494> {
   constexpr static const char* name = "pfMet/ptUnclUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.pfMet.ptUnclUp)};
@@ -9246,7 +6730,7 @@ struct plotter <674> {
 
 
 template <>
-struct plotter <675> {
+struct plotter <495> {
   constexpr static const char* name = "puppiMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.phi)};
@@ -9256,7 +6740,7 @@ struct plotter <675> {
 
 
 template <>
-struct plotter <676> {
+struct plotter <496> {
   constexpr static const char* name = "puppiMet/phiUnclUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.phiUnclUp)};
@@ -9266,7 +6750,7 @@ struct plotter <676> {
 
 
 template <>
-struct plotter <677> {
+struct plotter <497> {
   constexpr static const char* name = "puppiMet/sumETRaw";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.sumETRaw)};
@@ -9276,7 +6760,7 @@ struct plotter <677> {
 
 
 template <>
-struct plotter <678> {
+struct plotter <498> {
   constexpr static const char* name = "puppiMet/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.ptCorrUp)};
@@ -9286,7 +6770,7 @@ struct plotter <678> {
 
 
 template <>
-struct plotter <679> {
+struct plotter <499> {
   constexpr static const char* name = "puppiMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.pt)};
@@ -9296,7 +6780,7 @@ struct plotter <679> {
 
 
 template <>
-struct plotter <680> {
+struct plotter <500> {
   constexpr static const char* name = "puppiMet/ptCorrDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.ptCorrDown)};
@@ -9306,7 +6790,7 @@ struct plotter <680> {
 
 
 template <>
-struct plotter <681> {
+struct plotter <501> {
   constexpr static const char* name = "puppiMet/phiCorrUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.phiCorrUp)};
@@ -9316,7 +6800,7 @@ struct plotter <681> {
 
 
 template <>
-struct plotter <682> {
+struct plotter <502> {
   constexpr static const char* name = "puppiMet/phiUnclDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.phiUnclDown)};
@@ -9326,7 +6810,7 @@ struct plotter <682> {
 
 
 template <>
-struct plotter <683> {
+struct plotter <503> {
   constexpr static const char* name = "puppiMet/ptUnclDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.ptUnclDown)};
@@ -9336,7 +6820,7 @@ struct plotter <683> {
 
 
 template <>
-struct plotter <684> {
+struct plotter <504> {
   constexpr static const char* name = "puppiMet/phiCorrDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.phiCorrDown)};
@@ -9346,7 +6830,7 @@ struct plotter <684> {
 
 
 template <>
-struct plotter <685> {
+struct plotter <505> {
   constexpr static const char* name = "puppiMet/ptUnclUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.puppiMet.ptUnclUp)};
@@ -9356,7 +6840,7 @@ struct plotter <685> {
 
 
 template <>
-struct plotter <686> {
+struct plotter <506> {
   constexpr static const char* name = "rawMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.rawMet.phi)};
@@ -9366,7 +6850,7 @@ struct plotter <686> {
 
 
 template <>
-struct plotter <687> {
+struct plotter <507> {
   constexpr static const char* name = "rawMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.rawMet.pt)};
@@ -9376,7 +6860,7 @@ struct plotter <687> {
 
 
 template <>
-struct plotter <688> {
+struct plotter <508> {
   constexpr static const char* name = "caloMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.caloMet.phi)};
@@ -9386,7 +6870,7 @@ struct plotter <688> {
 
 
 template <>
-struct plotter <689> {
+struct plotter <509> {
   constexpr static const char* name = "caloMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.caloMet.pt)};
@@ -9396,7 +6880,7 @@ struct plotter <689> {
 
 
 template <>
-struct plotter <690> {
+struct plotter <510> {
   constexpr static const char* name = "noMuMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.noMuMet.phi)};
@@ -9406,7 +6890,7 @@ struct plotter <690> {
 
 
 template <>
-struct plotter <691> {
+struct plotter <511> {
   constexpr static const char* name = "noMuMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.noMuMet.pt)};
@@ -9416,7 +6900,7 @@ struct plotter <691> {
 
 
 template <>
-struct plotter <692> {
+struct plotter <512> {
   constexpr static const char* name = "noHFMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.noHFMet.phi)};
@@ -9426,7 +6910,7 @@ struct plotter <692> {
 
 
 template <>
-struct plotter <693> {
+struct plotter <513> {
   constexpr static const char* name = "noHFMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.noHFMet.pt)};
@@ -9436,7 +6920,7 @@ struct plotter <693> {
 
 
 template <>
-struct plotter <694> {
+struct plotter <514> {
   constexpr static const char* name = "trkMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.trkMet.phi)};
@@ -9446,7 +6930,7 @@ struct plotter <694> {
 
 
 template <>
-struct plotter <695> {
+struct plotter <515> {
   constexpr static const char* name = "trkMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.trkMet.pt)};
@@ -9456,7 +6940,7 @@ struct plotter <695> {
 
 
 template <>
-struct plotter <696> {
+struct plotter <516> {
   constexpr static const char* name = "neutralMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.neutralMet.phi)};
@@ -9466,7 +6950,7 @@ struct plotter <696> {
 
 
 template <>
-struct plotter <697> {
+struct plotter <517> {
   constexpr static const char* name = "neutralMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.neutralMet.pt)};
@@ -9476,7 +6960,7 @@ struct plotter <697> {
 
 
 template <>
-struct plotter <698> {
+struct plotter <518> {
   constexpr static const char* name = "photonMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.photonMet.phi)};
@@ -9486,7 +6970,7 @@ struct plotter <698> {
 
 
 template <>
-struct plotter <699> {
+struct plotter <519> {
   constexpr static const char* name = "photonMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.photonMet.pt)};
@@ -9496,7 +6980,7 @@ struct plotter <699> {
 
 
 template <>
-struct plotter <700> {
+struct plotter <520> {
   constexpr static const char* name = "hfMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.hfMet.phi)};
@@ -9506,7 +6990,7 @@ struct plotter <700> {
 
 
 template <>
-struct plotter <701> {
+struct plotter <521> {
   constexpr static const char* name = "hfMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.hfMet.pt)};
@@ -9516,7 +7000,7 @@ struct plotter <701> {
 
 
 template <>
-struct plotter <702> {
+struct plotter <522> {
   constexpr static const char* name = "genMet/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.genMet.phi)};
@@ -9526,7 +7010,7 @@ struct plotter <702> {
 
 
 template <>
-struct plotter <703> {
+struct plotter <523> {
   constexpr static const char* name = "genMet/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.genMet.pt)};
@@ -9536,7 +7020,7 @@ struct plotter <703> {
 
 
 template <>
-struct plotter <704> {
+struct plotter <524> {
   constexpr static const char* name = "metMuOnlyFix/phi";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.phi)};
@@ -9546,7 +7030,7 @@ struct plotter <704> {
 
 
 template <>
-struct plotter <705> {
+struct plotter <525> {
   constexpr static const char* name = "metMuOnlyFix/phiUnclUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.phiUnclUp)};
@@ -9556,7 +7040,7 @@ struct plotter <705> {
 
 
 template <>
-struct plotter <706> {
+struct plotter <526> {
   constexpr static const char* name = "metMuOnlyFix/sumETRaw";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.sumETRaw)};
@@ -9566,7 +7050,7 @@ struct plotter <706> {
 
 
 template <>
-struct plotter <707> {
+struct plotter <527> {
   constexpr static const char* name = "metMuOnlyFix/ptCorrUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.ptCorrUp)};
@@ -9576,7 +7060,7 @@ struct plotter <707> {
 
 
 template <>
-struct plotter <708> {
+struct plotter <528> {
   constexpr static const char* name = "metMuOnlyFix/pt";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.pt)};
@@ -9586,7 +7070,7 @@ struct plotter <708> {
 
 
 template <>
-struct plotter <709> {
+struct plotter <529> {
   constexpr static const char* name = "metMuOnlyFix/ptCorrDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.ptCorrDown)};
@@ -9596,7 +7080,7 @@ struct plotter <709> {
 
 
 template <>
-struct plotter <710> {
+struct plotter <530> {
   constexpr static const char* name = "metMuOnlyFix/phiCorrUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.phiCorrUp)};
@@ -9606,7 +7090,7 @@ struct plotter <710> {
 
 
 template <>
-struct plotter <711> {
+struct plotter <531> {
   constexpr static const char* name = "metMuOnlyFix/phiUnclDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.phiUnclDown)};
@@ -9616,7 +7100,7 @@ struct plotter <711> {
 
 
 template <>
-struct plotter <712> {
+struct plotter <532> {
   constexpr static const char* name = "metMuOnlyFix/ptUnclDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.ptUnclDown)};
@@ -9626,7 +7110,7 @@ struct plotter <712> {
 
 
 template <>
-struct plotter <713> {
+struct plotter <533> {
   constexpr static const char* name = "metMuOnlyFix/phiCorrDown";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.phiCorrDown)};
@@ -9636,7 +7120,7 @@ struct plotter <713> {
 
 
 template <>
-struct plotter <714> {
+struct plotter <534> {
   constexpr static const char* name = "metMuOnlyFix/ptUnclUp";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metMuOnlyFix.ptUnclUp)};
@@ -9646,7 +7130,117 @@ struct plotter <714> {
 
 
 template <>
-struct plotter <715> {
+struct plotter <535> {
+  constexpr static const char* name = "metNoFix/phi";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.phi)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <536> {
+  constexpr static const char* name = "metNoFix/phiUnclUp";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.phiUnclUp)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <537> {
+  constexpr static const char* name = "metNoFix/sumETRaw";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.sumETRaw)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <538> {
+  constexpr static const char* name = "metNoFix/ptCorrUp";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.ptCorrUp)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <539> {
+  constexpr static const char* name = "metNoFix/pt";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.pt)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <540> {
+  constexpr static const char* name = "metNoFix/ptCorrDown";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.ptCorrDown)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <541> {
+  constexpr static const char* name = "metNoFix/phiCorrUp";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.phiCorrUp)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <542> {
+  constexpr static const char* name = "metNoFix/phiUnclDown";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.phiUnclDown)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <543> {
+  constexpr static const char* name = "metNoFix/ptUnclDown";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.ptUnclDown)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <544> {
+  constexpr static const char* name = "metNoFix/phiCorrDown";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.phiCorrDown)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <545> {
+  constexpr static const char* name = "metNoFix/ptUnclUp";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metNoFix.ptUnclUp)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <546> {
   constexpr static const char* name = "metFilters/duplicateMuons";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metFilters.duplicateMuons)};
@@ -9656,7 +7250,7 @@ struct plotter <715> {
 
 
 template <>
-struct plotter <716> {
+struct plotter <547> {
   constexpr static const char* name = "metFilters/badMuons";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metFilters.badMuons)};
@@ -9666,7 +7260,7 @@ struct plotter <716> {
 
 
 template <>
-struct plotter <717> {
+struct plotter <548> {
   constexpr static const char* name = "metFilters/globalHalo16";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metFilters.globalHalo16)};
@@ -9676,7 +7270,7 @@ struct plotter <717> {
 
 
 template <>
-struct plotter <718> {
+struct plotter <549> {
   constexpr static const char* name = "metFilters/badsc";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metFilters.badsc)};
@@ -9686,67 +7280,7 @@ struct plotter <718> {
 
 
 template <>
-struct plotter <719> {
-  constexpr static const char* name = "metFilters/hbheIso";
-  std::vector<float> operator () (panda::Event& event) {
-    std::vector<float> output {float(event.metFilters.hbheIso)};
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <720> {
-  constexpr static const char* name = "metFilters/hbhe";
-  std::vector<float> operator () (panda::Event& event) {
-    std::vector<float> output {float(event.metFilters.hbhe)};
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <721> {
-  constexpr static const char* name = "metFilters/badPFMuons";
-  std::vector<float> operator () (panda::Event& event) {
-    std::vector<float> output {float(event.metFilters.badPFMuons)};
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <722> {
-  constexpr static const char* name = "metFilters/goodVertices";
-  std::vector<float> operator () (panda::Event& event) {
-    std::vector<float> output {float(event.metFilters.goodVertices)};
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <723> {
-  constexpr static const char* name = "metFilters/ecalDeadCell";
-  std::vector<float> operator () (panda::Event& event) {
-    std::vector<float> output {float(event.metFilters.ecalDeadCell)};
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <724> {
-  constexpr static const char* name = "metFilters/badChargedHadrons";
-  std::vector<float> operator () (panda::Event& event) {
-    std::vector<float> output {float(event.metFilters.badChargedHadrons)};
-    return output;
-  }
-};
-
-
-template <>
-struct plotter <725> {
+struct plotter <550> {
   constexpr static const char* name = "metFilters/pass";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.metFilters.pass())};
@@ -9756,7 +7290,87 @@ struct plotter <725> {
 
 
 template <>
-struct plotter <726> {
+struct plotter <551> {
+  constexpr static const char* name = "metFilters/hbheIso";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metFilters.hbheIso)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <552> {
+  constexpr static const char* name = "metFilters/hbhe";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metFilters.hbhe)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <553> {
+  constexpr static const char* name = "metFilters/badPFMuons";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metFilters.badPFMuons)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <554> {
+  constexpr static const char* name = "metFilters/goodVertices";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metFilters.goodVertices)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <555> {
+  constexpr static const char* name = "metFilters/unfixedECALHits";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metFilters.unfixedECALHits)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <556> {
+  constexpr static const char* name = "metFilters/ecalDeadCell";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metFilters.ecalDeadCell)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <557> {
+  constexpr static const char* name = "metFilters/badChargedHadrons";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metFilters.badChargedHadrons)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <558> {
+  constexpr static const char* name = "metFilters/dupECALClusters";
+  std::vector<float> operator () (panda::Event& event) {
+    std::vector<float> output {float(event.metFilters.dupECALClusters)};
+    return output;
+  }
+};
+
+
+template <>
+struct plotter <559> {
   constexpr static const char* name = "recoil/max";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.recoil.max)};
@@ -9766,7 +7380,7 @@ struct plotter <726> {
 
 
 template <>
-struct plotter <727> {
+struct plotter <560> {
   constexpr static const char* name = "recoil/monoE";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.recoil.monoE)};
@@ -9776,7 +7390,7 @@ struct plotter <727> {
 
 
 template <>
-struct plotter <728> {
+struct plotter <561> {
   constexpr static const char* name = "recoil/diE";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.recoil.diE)};
@@ -9786,7 +7400,7 @@ struct plotter <728> {
 
 
 template <>
-struct plotter <729> {
+struct plotter <562> {
   constexpr static const char* name = "recoil/monoMu";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.recoil.monoMu)};
@@ -9796,7 +7410,7 @@ struct plotter <729> {
 
 
 template <>
-struct plotter <730> {
+struct plotter <563> {
   constexpr static const char* name = "recoil/met";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.recoil.met)};
@@ -9806,7 +7420,7 @@ struct plotter <730> {
 
 
 template <>
-struct plotter <731> {
+struct plotter <564> {
   constexpr static const char* name = "recoil/diMu";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.recoil.diMu)};
@@ -9816,7 +7430,7 @@ struct plotter <731> {
 
 
 template <>
-struct plotter <732> {
+struct plotter <565> {
   constexpr static const char* name = "recoil/any";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.recoil.any())};
@@ -9826,7 +7440,7 @@ struct plotter <732> {
 
 
 template <>
-struct plotter <733> {
+struct plotter <566> {
   constexpr static const char* name = "recoil/gamma";
   std::vector<float> operator () (panda::Event& event) {
     std::vector<float> output {float(event.recoil.gamma)};
@@ -9834,6 +7448,6 @@ struct plotter <733> {
   }
 };
 
-#define NUM_PLOTS 734
+#define NUM_PLOTS 567
 
 #endif

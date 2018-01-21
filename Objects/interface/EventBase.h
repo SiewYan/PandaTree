@@ -7,7 +7,6 @@
 #include "TList.h"
 #include "TFile.h"
 #include "TKey.h"
-#include "HLTObjectStore.h"
 
 namespace panda {
 
@@ -25,7 +24,7 @@ namespace panda {
 
     UInt_t runNumber{};
     UInt_t lumiNumber{};
-    ULong64_t eventNumber{};
+    UInt_t eventNumber{};
     Bool_t isData{};
     Float_t weight{};
 
@@ -69,7 +68,7 @@ namespace panda {
     Bool_t triggerFired(UInt_t token) const;
 
     //! Trigger object collection with additional features.
-    HLTObjectStore triggerObjects = HLTObjectStore("triggerObjects");
+    //HLTObjectStore triggerObjects = HLTObjectStore("triggerObjects");
 
   private:
     //! Flag to set run synch feature on/off

@@ -1,13 +1,16 @@
 #include "../interface/Photon.h"
 
 TString panda::Photon::TriggerObjectName[] = {
-  "fPh165HE10Seed",
-  "fPh175Seed",
-  "fPh200Seed",
+  "fSEG34IorSEG40",
+  "fSEG40IorSJet200",
+  "fSEG34IorSEG40IorSJet200",
+  "fSEG24",
+  "fSEG30",
+  "fSEG40",
+  "fPh120",
   "fPh135",
   "fPh165HE10",
   "fPh175",
-  "fPh200",
   "fPh22EBR9Iso",
   "fPh36EBR9Iso",
   "fPh50EBR9Iso",
@@ -22,7 +25,7 @@ panda::Photon::getListOfBranches()
 {
   utils::BranchList blist;
   blist += ParticleP::getListOfBranches();
-  blist += {"pfPt", "chIso", "chIsoMax", "nhIso", "phIso", "sieie", "sipip", "hOverE", "genIso", "mipEnergy", "emax", "e2nd", "eleft", "eright", "etop", "ebottom", "r9", "etaWidth", "phiWidth", "time", "timeSpan", "regPt", "smearedPt", "loose", "medium", "tight", "highpt", "pixelVeto", "csafeVeto", "triggerMatch", "superCluster_", "matchedPF_", "matchedGen_"};
+  blist += {"pfPt", "chIso", "chIsoMax", "nhIso", "phIso", "sieie", "sipip", "hOverE", "genIso", "mipEnergy", "emax", "e2nd", "eleft", "eright", "etop", "ebottom", "r9", "etaWidth", "phiWidth", "time", "timeSpan", "regPt", "smearedPt", "originalPt", "loose", "medium", "tight", "highpt", "pixelVeto", "csafeVeto", "triggerMatch", "superCluster_", "matchedPF_", "matchedGen_"};
   return blist;
 }
 
@@ -54,6 +57,7 @@ panda::Photon::datastore::allocate(UInt_t _nmax)
   timeSpan = new Float_t[nmax_];
   regPt = new Float_t[nmax_];
   smearedPt = new Float_t[nmax_];
+  originalPt = new Float_t[nmax_];
   loose = new Bool_t[nmax_];
   medium = new Bool_t[nmax_];
   tight = new Bool_t[nmax_];
@@ -117,6 +121,8 @@ panda::Photon::datastore::deallocate()
   regPt = 0;
   delete [] smearedPt;
   smearedPt = 0;
+  delete [] originalPt;
+  originalPt = 0;
   delete [] loose;
   loose = 0;
   delete [] medium;
@@ -167,6 +173,7 @@ panda::Photon::datastore::setStatus(TTree& _tree, TString const& _name, utils::B
   utils::setStatus(_tree, _name, "timeSpan", _branches);
   utils::setStatus(_tree, _name, "regPt", _branches);
   utils::setStatus(_tree, _name, "smearedPt", _branches);
+  utils::setStatus(_tree, _name, "originalPt", _branches);
   utils::setStatus(_tree, _name, "loose", _branches);
   utils::setStatus(_tree, _name, "medium", _branches);
   utils::setStatus(_tree, _name, "tight", _branches);
@@ -207,6 +214,7 @@ panda::Photon::datastore::getStatus(TTree& _tree, TString const& _name) const
   blist.push_back(utils::getStatus(_tree, _name, "timeSpan"));
   blist.push_back(utils::getStatus(_tree, _name, "regPt"));
   blist.push_back(utils::getStatus(_tree, _name, "smearedPt"));
+  blist.push_back(utils::getStatus(_tree, _name, "originalPt"));
   blist.push_back(utils::getStatus(_tree, _name, "loose"));
   blist.push_back(utils::getStatus(_tree, _name, "medium"));
   blist.push_back(utils::getStatus(_tree, _name, "tight"));
@@ -249,6 +257,7 @@ panda::Photon::datastore::setAddress(TTree& _tree, TString const& _name, utils::
   utils::setAddress(_tree, _name, "timeSpan", timeSpan, _branches, _setStatus);
   utils::setAddress(_tree, _name, "regPt", regPt, _branches, _setStatus);
   utils::setAddress(_tree, _name, "smearedPt", smearedPt, _branches, _setStatus);
+  utils::setAddress(_tree, _name, "originalPt", originalPt, _branches, _setStatus);
   utils::setAddress(_tree, _name, "loose", loose, _branches, _setStatus);
   utils::setAddress(_tree, _name, "medium", medium, _branches, _setStatus);
   utils::setAddress(_tree, _name, "tight", tight, _branches, _setStatus);
@@ -291,6 +300,7 @@ panda::Photon::datastore::book(TTree& _tree, TString const& _name, utils::Branch
   utils::book(_tree, _name, "timeSpan", size, 'F', timeSpan, _branches);
   utils::book(_tree, _name, "regPt", size, 'F', regPt, _branches);
   utils::book(_tree, _name, "smearedPt", size, 'F', smearedPt, _branches);
+  utils::book(_tree, _name, "originalPt", size, 'F', originalPt, _branches);
   utils::book(_tree, _name, "loose", size, 'O', loose, _branches);
   utils::book(_tree, _name, "medium", size, 'O', medium, _branches);
   utils::book(_tree, _name, "tight", size, 'O', tight, _branches);
@@ -331,6 +341,7 @@ panda::Photon::datastore::releaseTree(TTree& _tree, TString const& _name)
   utils::resetAddress(_tree, _name, "timeSpan");
   utils::resetAddress(_tree, _name, "regPt");
   utils::resetAddress(_tree, _name, "smearedPt");
+  utils::resetAddress(_tree, _name, "originalPt");
   utils::resetAddress(_tree, _name, "loose");
   utils::resetAddress(_tree, _name, "medium");
   utils::resetAddress(_tree, _name, "tight");
@@ -382,6 +393,7 @@ panda::Photon::Photon(char const* _name/* = ""*/) :
   timeSpan(gStore.getData(this).timeSpan[0]),
   regPt(gStore.getData(this).regPt[0]),
   smearedPt(gStore.getData(this).smearedPt[0]),
+  originalPt(gStore.getData(this).originalPt[0]),
   loose(gStore.getData(this).loose[0]),
   medium(gStore.getData(this).medium[0]),
   tight(gStore.getData(this).tight[0]),
@@ -420,6 +432,7 @@ panda::Photon::Photon(Photon const& _src) :
   timeSpan(gStore.getData(this).timeSpan[0]),
   regPt(gStore.getData(this).regPt[0]),
   smearedPt(gStore.getData(this).smearedPt[0]),
+  originalPt(gStore.getData(this).originalPt[0]),
   loose(gStore.getData(this).loose[0]),
   medium(gStore.getData(this).medium[0]),
   tight(gStore.getData(this).tight[0]),
@@ -456,6 +469,7 @@ panda::Photon::Photon(Photon const& _src) :
   timeSpan = _src.timeSpan;
   regPt = _src.regPt;
   smearedPt = _src.smearedPt;
+  originalPt = _src.originalPt;
   loose = _src.loose;
   medium = _src.medium;
   tight = _src.tight;
@@ -493,6 +507,7 @@ panda::Photon::Photon(datastore& _data, UInt_t _idx) :
   timeSpan(_data.timeSpan[_idx]),
   regPt(_data.regPt[_idx]),
   smearedPt(_data.smearedPt[_idx]),
+  originalPt(_data.originalPt[_idx]),
   loose(_data.loose[_idx]),
   medium(_data.medium[_idx]),
   tight(_data.tight[_idx]),
@@ -531,6 +546,7 @@ panda::Photon::Photon(ArrayBase* _array) :
   timeSpan(gStore.getData(this).timeSpan[0]),
   regPt(gStore.getData(this).regPt[0]),
   smearedPt(gStore.getData(this).smearedPt[0]),
+  originalPt(gStore.getData(this).originalPt[0]),
   loose(gStore.getData(this).loose[0]),
   medium(gStore.getData(this).medium[0]),
   tight(gStore.getData(this).tight[0]),
@@ -587,6 +603,7 @@ panda::Photon::operator=(Photon const& _src)
   timeSpan = _src.timeSpan;
   regPt = _src.regPt;
   smearedPt = _src.smearedPt;
+  originalPt = _src.originalPt;
   loose = _src.loose;
   medium = _src.medium;
   tight = _src.tight;
@@ -632,6 +649,7 @@ panda::Photon::doBook_(TTree& _tree, TString const& _name, utils::BranchList con
   utils::book(_tree, _name, "timeSpan", "", 'F', &timeSpan, _branches);
   utils::book(_tree, _name, "regPt", "", 'F', &regPt, _branches);
   utils::book(_tree, _name, "smearedPt", "", 'F', &smearedPt, _branches);
+  utils::book(_tree, _name, "originalPt", "", 'F', &originalPt, _branches);
   utils::book(_tree, _name, "loose", "", 'O', &loose, _branches);
   utils::book(_tree, _name, "medium", "", 'O', &medium, _branches);
   utils::book(_tree, _name, "tight", "", 'O', &tight, _branches);
@@ -672,6 +690,7 @@ panda::Photon::doInit_()
   timeSpan = 0.;
   regPt = 0.;
   smearedPt = 0.;
+  originalPt = -1.;
   loose = false;
   medium = false;
   tight = false;
@@ -744,6 +763,7 @@ panda::Photon::dump(std::ostream& _out/* = std::cout*/) const
   _out << "timeSpan = " << timeSpan << std::endl;
   _out << "regPt = " << regPt << std::endl;
   _out << "smearedPt = " << smearedPt << std::endl;
+  _out << "originalPt = " << originalPt << std::endl;
   _out << "loose = " << loose << std::endl;
   _out << "medium = " << medium << std::endl;
   _out << "tight = " << tight << std::endl;

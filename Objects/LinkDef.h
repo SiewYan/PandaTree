@@ -8,7 +8,6 @@
 #include "PandaTree/Objects/interface/PFCand.h"
 #include "PandaTree/Objects/interface/ParticleP.h"
 #include "PandaTree/Objects/interface/ParticleM.h"
-#include "PandaTree/Objects/interface/SecondaryVertex.h"
 #include "PandaTree/Objects/interface/UnpackedPFCand.h"
 #include "PandaTree/Objects/interface/Parton.h"
 #include "PandaTree/Objects/interface/UnpackedGenParticle.h"
@@ -25,22 +24,11 @@
 #include "PandaTree/Objects/interface/RecoMet.h"
 #include "PandaTree/Objects/interface/MetFilters.h"
 #include "PandaTree/Objects/interface/HLTBits.h"
-#include "PandaTree/Objects/interface/HLTObject.h"
 #include "PandaTree/Objects/interface/GenReweight.h"
 #include "PandaTree/Objects/interface/Recoil.h"
-#include "PandaTree/Objects/interface/XPhoton.h"
-#include "PandaTree/Objects/interface/TPPair.h"
 #include "PandaTree/Objects/interface/EventBase.h"
 #include "PandaTree/Objects/interface/Event.h"
 #include "PandaTree/Objects/interface/Run.h"
-#include "PandaTree/Objects/interface/EventMonophoton.h"
-#include "PandaTree/Objects/interface/EventTP.h"
-#include "PandaTree/Objects/interface/EventTPEG.h"
-#include "PandaTree/Objects/interface/EventTPEEG.h"
-#include "PandaTree/Objects/interface/EventTPMG.h"
-#include "PandaTree/Objects/interface/EventTPMMG.h"
-#include "PandaTree/Objects/interface/EventTP2E.h"
-#include "PandaTree/Objects/interface/EventTP2M.h"
 
 #ifdef __CLING__
 #pragma link off all globals;
@@ -60,7 +48,6 @@
 #pragma link C++ class panda::PFCand;
 #pragma link C++ class panda::ParticleP;
 #pragma link C++ class panda::ParticleM;
-#pragma link C++ class panda::SecondaryVertex;
 #pragma link C++ class panda::UnpackedPFCand;
 #pragma link C++ class panda::Parton;
 #pragma link C++ class panda::UnpackedGenParticle;
@@ -77,13 +64,8 @@
 #pragma link C++ class panda::RecoMet;
 #pragma link C++ class panda::MetFilters;
 #pragma link C++ class panda::HLTBits;
-#pragma link C++ class panda::HLTObject;
-#pragma link C++ class std::vector<UShort_t>+;
-#pragma link C++ class std::vector<std::vector<UShort_t>>+;
 #pragma link C++ class panda::GenReweight;
 #pragma link C++ class panda::Recoil;
-#pragma link C++ class panda::XPhoton;
-#pragma link C++ class panda::TPPair;
 #pragma link C++ class panda::Array<panda::Particle>;
 #pragma link C++ class panda::Collection<panda::Particle>;
 #pragma link C++ class panda::Ref<panda::Particle>;
@@ -124,10 +106,6 @@
 #pragma link C++ class panda::Collection<panda::ParticleM>;
 #pragma link C++ class panda::Ref<panda::ParticleM>;
 #pragma link C++ class panda::RefVector<panda::ParticleM>;
-#pragma link C++ class panda::Array<panda::SecondaryVertex>;
-#pragma link C++ class panda::Collection<panda::SecondaryVertex>;
-#pragma link C++ class panda::Ref<panda::SecondaryVertex>;
-#pragma link C++ class panda::RefVector<panda::SecondaryVertex>;
 #pragma link C++ class panda::Array<panda::UnpackedPFCand>;
 #pragma link C++ class panda::Collection<panda::UnpackedPFCand>;
 #pragma link C++ class panda::Ref<panda::UnpackedPFCand>;
@@ -176,18 +154,6 @@
 #pragma link C++ class panda::Collection<panda::FatJet>;
 #pragma link C++ class panda::Ref<panda::FatJet>;
 #pragma link C++ class panda::RefVector<panda::FatJet>;
-#pragma link C++ class panda::Array<panda::HLTObject>;
-#pragma link C++ class panda::Collection<panda::HLTObject>;
-#pragma link C++ class panda::Ref<panda::HLTObject>;
-#pragma link C++ class panda::RefVector<panda::HLTObject>;
-#pragma link C++ class panda::Array<panda::XPhoton>;
-#pragma link C++ class panda::Collection<panda::XPhoton>;
-#pragma link C++ class panda::Ref<panda::XPhoton>;
-#pragma link C++ class panda::RefVector<panda::XPhoton>;
-#pragma link C++ class panda::Array<panda::TPPair>;
-#pragma link C++ class panda::Collection<panda::TPPair>;
-#pragma link C++ class panda::Ref<panda::TPPair>;
-#pragma link C++ class panda::RefVector<panda::TPPair>;
 #pragma link C++ typedef panda::ParticleArray;
 #pragma link C++ typedef panda::ParticleCollection;
 #pragma link C++ typedef panda::ParticleRef;
@@ -228,10 +194,6 @@
 #pragma link C++ typedef panda::ParticleMCollection;
 #pragma link C++ typedef panda::ParticleMRef;
 #pragma link C++ typedef panda::ParticleMRefVector;
-#pragma link C++ typedef panda::SecondaryVertexArray;
-#pragma link C++ typedef panda::SecondaryVertexCollection;
-#pragma link C++ typedef panda::SecondaryVertexRef;
-#pragma link C++ typedef panda::SecondaryVertexRefVector;
 #pragma link C++ typedef panda::UnpackedPFCandArray;
 #pragma link C++ typedef panda::UnpackedPFCandCollection;
 #pragma link C++ typedef panda::UnpackedPFCandRef;
@@ -280,28 +242,8 @@
 #pragma link C++ typedef panda::FatJetCollection;
 #pragma link C++ typedef panda::FatJetRef;
 #pragma link C++ typedef panda::FatJetRefVector;
-#pragma link C++ typedef panda::HLTObjectArray;
-#pragma link C++ typedef panda::HLTObjectCollection;
-#pragma link C++ typedef panda::HLTObjectRef;
-#pragma link C++ typedef panda::HLTObjectRefVector;
-#pragma link C++ typedef panda::XPhotonArray;
-#pragma link C++ typedef panda::XPhotonCollection;
-#pragma link C++ typedef panda::XPhotonRef;
-#pragma link C++ typedef panda::XPhotonRefVector;
-#pragma link C++ typedef panda::TPPairArray;
-#pragma link C++ typedef panda::TPPairCollection;
-#pragma link C++ typedef panda::TPPairRef;
-#pragma link C++ typedef panda::TPPairRefVector;
 #pragma link C++ class panda::EventBase;
 #pragma link C++ class panda::Event;
 #pragma link C++ class panda::Run;
-#pragma link C++ class panda::EventMonophoton;
-#pragma link C++ class panda::EventTP;
-#pragma link C++ class panda::EventTPEG;
-#pragma link C++ class panda::EventTPEEG;
-#pragma link C++ class panda::EventTPMG;
-#pragma link C++ class panda::EventTPMMG;
-#pragma link C++ class panda::EventTP2E;
-#pragma link C++ class panda::EventTP2M;
 
 #endif
